@@ -6,7 +6,7 @@ import './HOC.css'
 const HOC = (Wcomponent) => {
     return function Component() {
         const [width, setWidth] = useState(false)
-        // console.log(widt)
+        // console.log(width)
 
 
         return (
