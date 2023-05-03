@@ -14,7 +14,7 @@ export function OrderModal(props) {
         "https://ant.aliceblueonline.com/rest/AliceBlueAPIService/api/placeOrder/fetchTradeBook",
         {
           headers: {
-            Authorization: `Bearer 764564 tfhDgNPSo9GdbQXC1Ors3crUV1npKQresY6kBPcXdxmoqN19J4KEMLbW7WUQnKIyLlcQLTb6Uq8ny52k4RTAPt05v23lJayLoOpOP1u25l3hpBmaFznbvbLd2bTm1U8zXfxoIbPJC0gTORLvUZY0h9HEGeNseVCM6AQ5RYMggqyi3zvgI07lu4DXef5bMHePqjL50FdPFi1FUXI7pmWEi5jcnSYPy2OyzLPKjrFWipdgLRNgXSd8Zk1lP1EKiXl5 `,
+            Authorization: `Bearer 764564 8NCJcYACJXm7W8TR3TbM76ISfSW0jmEkiXQcfmiyXgdayjZ7TDLIWaJW0gdbVWjDCQ3dJJhoQkaA53N1ArOYe9P0LtmoTvsGDNm6vYSpDAmuNOhdRk4mdIdB4c4ipYEm5jaqcIXFFzYoScKttChs2XWuGXsq3vEU0mV5SrSEOcfZIa0050FAbexTuPOKxitV6YhH37L784Zs57066NBz6dMRYyzuDnuAlYkf4OX7S25XPxBX4bBi7jYXGGzmqTO8 `,
           },
         }
       );
@@ -30,7 +30,7 @@ export function OrderModal(props) {
         "https://ant.aliceblueonline.com/rest/AliceBlueAPIService/api/placeOrder/fetchOrderBook",
         {
           headers: {
-            Authorization: `Bearer 764564 tfhDgNPSo9GdbQXC1Ors3crUV1npKQresY6kBPcXdxmoqN19J4KEMLbW7WUQnKIyLlcQLTb6Uq8ny52k4RTAPt05v23lJayLoOpOP1u25l3hpBmaFznbvbLd2bTm1U8zXfxoIbPJC0gTORLvUZY0h9HEGeNseVCM6AQ5RYMggqyi3zvgI07lu4DXef5bMHePqjL50FdPFi1FUXI7pmWEi5jcnSYPy2OyzLPKjrFWipdgLRNgXSd8Zk1lP1EKiXl5 `,
+            Authorization: `Bearer 764564 8NCJcYACJXm7W8TR3TbM76ISfSW0jmEkiXQcfmiyXgdayjZ7TDLIWaJW0gdbVWjDCQ3dJJhoQkaA53N1ArOYe9P0LtmoTvsGDNm6vYSpDAmuNOhdRk4mdIdB4c4ipYEm5jaqcIXFFzYoScKttChs2XWuGXsq3vEU0mV5SrSEOcfZIa0050FAbexTuPOKxitV6YhH37L784Zs57066NBz6dMRYyzuDnuAlYkf4OX7S25XPxBX4bBi7jYXGGzmqTO8 `,
           },
         }
       );
@@ -170,7 +170,7 @@ export function PortfoliModal(props) {
         },
         {
           headers: {
-            Authorization: `Bearer 764564 tfhDgNPSo9GdbQXC1Ors3crUV1npKQresY6kBPcXdxmoqN19J4KEMLbW7WUQnKIyLlcQLTb6Uq8ny52k4RTAPt05v23lJayLoOpOP1u25l3hpBmaFznbvbLd2bTm1U8zXfxoIbPJC0gTORLvUZY0h9HEGeNseVCM6AQ5RYMggqyi3zvgI07lu4DXef5bMHePqjL50FdPFi1FUXI7pmWEi5jcnSYPy2OyzLPKjrFWipdgLRNgXSd8Zk1lP1EKiXl5 `,
+            Authorization: `Bearer 764564 8NCJcYACJXm7W8TR3TbM76ISfSW0jmEkiXQcfmiyXgdayjZ7TDLIWaJW0gdbVWjDCQ3dJJhoQkaA53N1ArOYe9P0LtmoTvsGDNm6vYSpDAmuNOhdRk4mdIdB4c4ipYEm5jaqcIXFFzYoScKttChs2XWuGXsq3vEU0mV5SrSEOcfZIa0050FAbexTuPOKxitV6YhH37L784Zs57066NBz6dMRYyzuDnuAlYkf4OX7S25XPxBX4bBi7jYXGGzmqTO8 `,
           },
         }
       );
@@ -310,29 +310,30 @@ export function PortfoliModal(props) {
   );
 }
 
-
 export function FundsModal(props) {
-  const [ data , setData ] = useState([])
+  const [data, setData] = useState([]);
 
   const fetchData = async () => {
     try {
-      const { data } = await axios.get("https://ant.aliceblueonline.com/rest/AliceBlueAPIService/api/limits/getRmsLimits" , {
-        headers : {
-          Authorization : `Bearer 764564 tfhDgNPSo9GdbQXC1Ors3crUV1npKQresY6kBPcXdxmoqN19J4KEMLbW7WUQnKIyLlcQLTb6Uq8ny52k4RTAPt05v23lJayLoOpOP1u25l3hpBmaFznbvbLd2bTm1U8zXfxoIbPJC0gTORLvUZY0h9HEGeNseVCM6AQ5RYMggqyi3zvgI07lu4DXef5bMHePqjL50FdPFi1FUXI7pmWEi5jcnSYPy2OyzLPKjrFWipdgLRNgXSd8Zk1lP1EKiXl5`
+      const { data } = await axios.get(
+        "https://ant.aliceblueonline.com/rest/AliceBlueAPIService/api/limits/getRmsLimits",
+        {
+          headers: {
+            Authorization: `Bearer 764564 8NCJcYACJXm7W8TR3TbM76ISfSW0jmEkiXQcfmiyXgdayjZ7TDLIWaJW0gdbVWjDCQ3dJJhoQkaA53N1ArOYe9P0LtmoTvsGDNm6vYSpDAmuNOhdRk4mdIdB4c4ipYEm5jaqcIXFFzYoScKttChs2XWuGXsq3vEU0mV5SrSEOcfZIa0050FAbexTuPOKxitV6YhH37L784Zs57066NBz6dMRYyzuDnuAlYkf4OX7S25XPxBX4bBi7jYXGGzmqTO8`,
+          },
         }
-      })
-      setData(data)
-    }catch(e) { 
-      console.log(e)
+      );
+      setData(data);
+    } catch (e) {
+      console.log(e);
     }
-  }
-
+  };
 
   useEffect(() => {
-    if(props.show){
-      fetchData()
+    if (props.show) {
+      fetchData();
     }
-  },[props.show])
+  }, [props.show]);
 
   return (
     <Modal
@@ -345,60 +346,56 @@ export function FundsModal(props) {
       <Modal.Body>
         <p className="headP">Funds</p>
 
-          <div className="overflowCont" style={{ marginTop: "5%" }}>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>realisedprofitloss</th>
-         
-                </tr>
-              </thead>
-              <tbody>
-            {data?.map((i , index) => (
-              <tr key={index}>
-                <td> {i.symbol} </td>
-                <td> {i.cncMarginUsed} </td>
-                <td> {i.spanmargin} </td>
-                <td> {i.branchAdhoc} </td>
-                <td> {i.adhocMargin} </td>
-                <td> {i.payoutamount} </td>
-                <td> {i.cdsSpreadBenefit} </td>
-                <td> {i.adhocscripmargin} </td>
-                <td> {i.exposuremargin} </td>
-                <td> {i.scripbasketmargin} </td>
-                <td> {i.credits} </td>
-                <td> {i.segment} </td>
-                <td> {i.net} </td>
-                <td> {i.turnover} </td>
-                <td> {i.grossexposurevalue} </td>
-                <td> {i.mfssAmountUsed} </td>
-                <td> {i.realizedMtomPrsnt} </td>
-                <td> {i.product} </td>
-                <td> {i.stat} </td>
-                <td> {i.cncSellCrditPrsnt} </td>
-                <td> {i.debits} </td>
-                <td> {i.varmargin} </td>
-                <td> {i.multiplier} </td>
-                <td> {i.elm} </td>
-                <td> {i.mfamount} </td>
-                <td> {i.symbol} </td>
-                <td> {i.symbol} </td>
-                <td> {i.symbol} </td>
-                <td> {i.symbol} </td>
-                <td> {i.symbol} </td>
-                <td> {i.symbol} </td>
-                <td> {i.symbol} </td>
-                <td> {i.symbol} </td>
+        <div className="overflowCont" style={{ marginTop: "5%" }}>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>realisedprofitloss</th>
               </tr>
-            ))}
-              </tbody>
-            </Table>
-          </div>
-     
+            </thead>
+            <tbody>
+              {data?.map((i, index) => (
+                <tr key={index}>
+                  <td> {i.symbol} </td>
+                  <td> {i.cncMarginUsed} </td>
+                  <td> {i.spanmargin} </td>
+                  <td> {i.branchAdhoc} </td>
+                  <td> {i.adhocMargin} </td>
+                  <td> {i.payoutamount} </td>
+                  <td> {i.cdsSpreadBenefit} </td>
+                  <td> {i.adhocscripmargin} </td>
+                  <td> {i.exposuremargin} </td>
+                  <td> {i.scripbasketmargin} </td>
+                  <td> {i.credits} </td>
+                  <td> {i.segment} </td>
+                  <td> {i.net} </td>
+                  <td> {i.turnover} </td>
+                  <td> {i.grossexposurevalue} </td>
+                  <td> {i.mfssAmountUsed} </td>
+                  <td> {i.realizedMtomPrsnt} </td>
+                  <td> {i.product} </td>
+                  <td> {i.stat} </td>
+                  <td> {i.cncSellCrditPrsnt} </td>
+                  <td> {i.debits} </td>
+                  <td> {i.varmargin} </td>
+                  <td> {i.multiplier} </td>
+                  <td> {i.elm} </td>
+                  <td> {i.mfamount} </td>
+                  <td> {i.symbol} </td>
+                  <td> {i.symbol} </td>
+                  <td> {i.symbol} </td>
+                  <td> {i.symbol} </td>
+                  <td> {i.symbol} </td>
+                  <td> {i.symbol} </td>
+                  <td> {i.symbol} </td>
+                  <td> {i.symbol} </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
       </Modal.Body>
       <Modal.Footer></Modal.Footer>
     </Modal>
   );
 }
-
-

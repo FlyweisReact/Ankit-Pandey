@@ -2,9 +2,9 @@
 
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { Table } from 'react-bootstrap'
+import { Table } from "react-bootstrap";
 
 export function OrderModal(props) {
   const [data, setData] = useState([]);
@@ -12,25 +12,24 @@ export function OrderModal(props) {
   const fetchOrderData = async () => {
     try {
       const { data } = await axios.get(
-        "https://ant.aliceblueonline.com/rest/AliceBlueAPIService/api/placeOrder/fetchOrderBook" , {
-            headers : {
-                Authorization : `Bearer 764564 tfhDgNPSo9GdbQXC1Ors3crUV1npKQresY6kBPcXdxmoqN19J4KEMLbW7WUQnKIyLlcQLTb6Uq8ny52k4RTAPt05v23lJayLoOpOP1u25l3hpBmaFznbvbLd2bTm1U8zXfxoIbPJC0gTORLvUZY0h9HEGeNseVCM6AQ5RYMggqyi3zvgI07lu4DXef5bMHePqjL50FdPFi1FUXI7pmWEi5jcnSYPy2OyzLPKjrFWipdgLRNgXSd8Zk1lP1EKiXl5 `
-            }
+        "https://ant.aliceblueonline.com/rest/AliceBlueAPIService/api/placeOrder/fetchOrderBook",
+        {
+          headers: {
+            Authorization: `Bearer 764564 8NCJcYACJXm7W8TR3TbM76ISfSW0jmEkiXQcfmiyXgdayjZ7TDLIWaJW0gdbVWjDCQ3dJJhoQkaA53N1ArOYe9P0LtmoTvsGDNm6vYSpDAmuNOhdRk4mdIdB4c4ipYEm5jaqcIXFFzYoScKttChs2XWuGXsq3vEU0mV5SrSEOcfZIa0050FAbexTuPOKxitV6YhH37L784Zs57066NBz6dMRYyzuDnuAlYkf4OX7S25XPxBX4bBi7jYXGGzmqTO8 `,
+          },
         }
       );
-      setData(data)
+      setData(data);
     } catch (e) {
       console.log(e);
     }
   };
 
-
   useEffect(() => {
-   if(props.show) {
-    fetchOrderData()
-   }
-  }, [props.show])
-  
+    if (props.show) {
+      fetchOrderData();
+    }
+  }, [props.show]);
 
   return (
     <Modal
@@ -41,18 +40,16 @@ export function OrderModal(props) {
     >
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
-      
         <Table key={index}>
-        <tr>
-          <th>Price</th>
+          <tr>
+            <th>Price</th>
           </tr>
-<tbody>
-{data?.map((i , index) => ( 
-  <tr></tr>
-  ))}
-</tbody>
+          <tbody>
+            {data?.map((i, index) => (
+              <tr></tr>
+            ))}
+          </tbody>
         </Table>
-    
       </Modal.Body>
       <Modal.Footer></Modal.Footer>
     </Modal>

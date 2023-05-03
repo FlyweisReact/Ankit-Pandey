@@ -14,7 +14,7 @@ export function OrderModal(props) {
         "https://ant.aliceblueonline.com/rest/AliceBlueAPIService/api/placeOrder/fetchTradeBook",
         {
           headers: {
-            Authorization: `Bearer 764564 tfhDgNPSo9GdbQXC1Ors3crUV1npKQresY6kBPcXdxmoqN19J4KEMLbW7WUQnKIyLlcQLTb6Uq8ny52k4RTAPt05v23lJayLoOpOP1u25l3hpBmaFznbvbLd2bTm1U8zXfxoIbPJC0gTORLvUZY0h9HEGeNseVCM6AQ5RYMggqyi3zvgI07lu4DXef5bMHePqjL50FdPFi1FUXI7pmWEi5jcnSYPy2OyzLPKjrFWipdgLRNgXSd8Zk1lP1EKiXl5 `,
+            Authorization: `Bearer 764564 8NCJcYACJXm7W8TR3TbM76ISfSW0jmEkiXQcfmiyXgdayjZ7TDLIWaJW0gdbVWjDCQ3dJJhoQkaA53N1ArOYe9P0LtmoTvsGDNm6vYSpDAmuNOhdRk4mdIdB4c4ipYEm5jaqcIXFFzYoScKttChs2XWuGXsq3vEU0mV5SrSEOcfZIa0050FAbexTuPOKxitV6YhH37L784Zs57066NBz6dMRYyzuDnuAlYkf4OX7S25XPxBX4bBi7jYXGGzmqTO8 `,
           },
         }
       );
@@ -30,7 +30,7 @@ export function OrderModal(props) {
         "https://ant.aliceblueonline.com/rest/AliceBlueAPIService/api/placeOrder/fetchOrderBook",
         {
           headers: {
-            Authorization: `Bearer 764564 tfhDgNPSo9GdbQXC1Ors3crUV1npKQresY6kBPcXdxmoqN19J4KEMLbW7WUQnKIyLlcQLTb6Uq8ny52k4RTAPt05v23lJayLoOpOP1u25l3hpBmaFznbvbLd2bTm1U8zXfxoIbPJC0gTORLvUZY0h9HEGeNseVCM6AQ5RYMggqyi3zvgI07lu4DXef5bMHePqjL50FdPFi1FUXI7pmWEi5jcnSYPy2OyzLPKjrFWipdgLRNgXSd8Zk1lP1EKiXl5 `,
+            Authorization: `Bearer 764564 8NCJcYACJXm7W8TR3TbM76ISfSW0jmEkiXQcfmiyXgdayjZ7TDLIWaJW0gdbVWjDCQ3dJJhoQkaA53N1ArOYe9P0LtmoTvsGDNm6vYSpDAmuNOhdRk4mdIdB4c4ipYEm5jaqcIXFFzYoScKttChs2XWuGXsq3vEU0mV5SrSEOcfZIa0050FAbexTuPOKxitV6YhH37L784Zs57066NBz6dMRYyzuDnuAlYkf4OX7S25XPxBX4bBi7jYXGGzmqTO8 `,
           },
         }
       );
@@ -158,7 +158,7 @@ export function OrderModal(props) {
 export function PortfoliModal(props) {
   const [ret, setRet] = useState("");
   const [data, setData] = useState([]);
-  const [ show , setShow] = useState(false)
+  const [show, setShow] = useState(false);
 
   const postHandler = async (e) => {
     e.preventDefault();
@@ -170,12 +170,12 @@ export function PortfoliModal(props) {
         },
         {
           headers: {
-            Authorization: `Bearer 764564 tfhDgNPSo9GdbQXC1Ors3crUV1npKQresY6kBPcXdxmoqN19J4KEMLbW7WUQnKIyLlcQLTb6Uq8ny52k4RTAPt05v23lJayLoOpOP1u25l3hpBmaFznbvbLd2bTm1U8zXfxoIbPJC0gTORLvUZY0h9HEGeNseVCM6AQ5RYMggqyi3zvgI07lu4DXef5bMHePqjL50FdPFi1FUXI7pmWEi5jcnSYPy2OyzLPKjrFWipdgLRNgXSd8Zk1lP1EKiXl5 `,
+            Authorization: `Bearer 764564 8NCJcYACJXm7W8TR3TbM76ISfSW0jmEkiXQcfmiyXgdayjZ7TDLIWaJW0gdbVWjDCQ3dJJhoQkaA53N1ArOYe9P0LtmoTvsGDNm6vYSpDAmuNOhdRk4mdIdB4c4ipYEm5jaqcIXFFzYoScKttChs2XWuGXsq3vEU0mV5SrSEOcfZIa0050FAbexTuPOKxitV6YhH37L784Zs57066NBz6dMRYyzuDnuAlYkf4OX7S25XPxBX4bBi7jYXGGzmqTO8 `,
           },
         }
       );
       setData(data);
-      setShow(true)
+      setShow(true);
     } catch (e) {
       console.log(e);
     }
@@ -208,7 +208,7 @@ export function PortfoliModal(props) {
           </Button>
         </Form>
 
-        <div className="overflowCont" style={{marginTop : '5%'}}>
+        <div className="overflowCont" style={{ marginTop: "5%" }}>
           <Table striped bordered hover>
             <thead>
               <tr>
@@ -217,73 +217,72 @@ export function PortfoliModal(props) {
                 <th>Netqty</th>
                 <th>Symbol</th>
                 <th>Instname</th>
-                <th>    Expdate  </th>
-                <th>  LTP    </th>
-                <th>  Opttype    </th>
-                <th> BLQty     </th>
-                <th> Token     </th>
-                <th> Fillbuyamt     </th>
-                <th> Fillsellqty     </th>
-                <th> Tsym     </th>
-                <th> sSqrflg     </th>
-                <th>  unrealisedprofitloss    </th>
-                <th>   Buyavgprc   </th>
-                <th> MtoM     </th>
-                <th> stat     </th>
-                <th>  s_NetQtyPosConv    </th>
-                <th> Sqty     </th>
-                <th>      </th>
-                <th>      </th>
+                <th> Expdate </th>
+                <th> LTP </th>
+                <th> Opttype </th>
+                <th> BLQty </th>
+                <th> Token </th>
+                <th> Fillbuyamt </th>
+                <th> Fillsellqty </th>
+                <th> Tsym </th>
+                <th> sSqrflg </th>
+                <th> unrealisedprofitloss </th>
+                <th> Buyavgprc </th>
+                <th> MtoM </th>
+                <th> stat </th>
+                <th> s_NetQtyPosConv </th>
+                <th> Sqty </th>
+                <th> </th>
+                <th> </th>
               </tr>
             </thead>
             <tbody>
-                {data?.map((i , index) => (
-                  <tr key={index}>
-                    <td> {i.realisedprofitloss} </td>
-                    <td> {i.Fillsellamt} </td>
-                    <td> {i.Netqty} </td>
-                    <td> {i.Symbol} </td>
-                    <td> {i.Instname} </td>
-                    <td> {i.Expdate} </td>
-                    <td> {i.LTP} </td>
-                    <td> {i.Opttype} </td>
-                    <td> {i.BLQty} </td>
-                    <td> {i.Token} </td>
-                    <td> {i.Fillbuyamt} </td>
-                    <td> {i.Fillsellqty} </td>
-                    <td> {i.Tsym} </td>
-                    <td> {i.sSqrflg} </td>
-                    <td> {i.unrealisedprofitloss} </td>
-                    <td> {i.Buyavgprc} </td>
-                    <td> {i.MtoM} </td>
-                    <td> {i.stat} </td>
-                    <td> {i.s_NetQtyPosConv} </td>
-                    <td> {i.Sqty} </td>
-                    <td> {i.Sellavgprc} </td>
-                    <td> {i.PriceDenomenator} </td>
-                    <td> {i.PriceNumerator} </td>
-                    <td> {i.actid} </td>
-                    <td> {i.posflag} </td>
-                    <td> {i.Pcode} </td>
-                    <td> {i.Stikeprc} </td>
-                    <td> {i.Bqty} </td>
-                    <td> {i.BEP} </td>
-                    <td> {i.Exchange} </td>
-                    <td> {i.Series} </td>
-                    <td> {i.GeneralDenomenator} </td>
-                    <td> {i.Type} </td>
-                    <td> {i.Netamt} </td>
-                    <td> {i.companyname} </td>
-                    <td> {i.Fillbuyqty} </td>
-                    <td> {i.GeneralNumerator} </td>
-                    <td> {i.Exchangeseg} </td>
-                    <td> {i.discQty} </td>
-                  </tr>
-                ))}
+              {data?.map((i, index) => (
+                <tr key={index}>
+                  <td> {i.realisedprofitloss} </td>
+                  <td> {i.Fillsellamt} </td>
+                  <td> {i.Netqty} </td>
+                  <td> {i.Symbol} </td>
+                  <td> {i.Instname} </td>
+                  <td> {i.Expdate} </td>
+                  <td> {i.LTP} </td>
+                  <td> {i.Opttype} </td>
+                  <td> {i.BLQty} </td>
+                  <td> {i.Token} </td>
+                  <td> {i.Fillbuyamt} </td>
+                  <td> {i.Fillsellqty} </td>
+                  <td> {i.Tsym} </td>
+                  <td> {i.sSqrflg} </td>
+                  <td> {i.unrealisedprofitloss} </td>
+                  <td> {i.Buyavgprc} </td>
+                  <td> {i.MtoM} </td>
+                  <td> {i.stat} </td>
+                  <td> {i.s_NetQtyPosConv} </td>
+                  <td> {i.Sqty} </td>
+                  <td> {i.Sellavgprc} </td>
+                  <td> {i.PriceDenomenator} </td>
+                  <td> {i.PriceNumerator} </td>
+                  <td> {i.actid} </td>
+                  <td> {i.posflag} </td>
+                  <td> {i.Pcode} </td>
+                  <td> {i.Stikeprc} </td>
+                  <td> {i.Bqty} </td>
+                  <td> {i.BEP} </td>
+                  <td> {i.Exchange} </td>
+                  <td> {i.Series} </td>
+                  <td> {i.GeneralDenomenator} </td>
+                  <td> {i.Type} </td>
+                  <td> {i.Netamt} </td>
+                  <td> {i.companyname} </td>
+                  <td> {i.Fillbuyqty} </td>
+                  <td> {i.GeneralNumerator} </td>
+                  <td> {i.Exchangeseg} </td>
+                  <td> {i.discQty} </td>
+                </tr>
+              ))}
             </tbody>
           </Table>
         </div>
-
       </Modal.Body>
       <Modal.Footer></Modal.Footer>
     </Modal>
