@@ -348,7 +348,7 @@ export function FundsModal(props) {
         "https://ant.aliceblueonline.com/rest/AliceBlueAPIService/api/limits/getRmsLimits",
         {
           headers: {
-            Authorization: `Bearer ${UserId} ${SessionId}`,
+            Authorization: `Bearer 764564 ${SessionId}`,
           },
         }
       );

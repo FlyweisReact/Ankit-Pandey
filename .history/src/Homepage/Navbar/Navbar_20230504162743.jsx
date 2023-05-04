@@ -26,7 +26,7 @@ const Navbar = ({ width, setWidth }) => {
           { key, userId }
         );
         localStorage.setItem("sessionId", data?.message?.sessionID);
-        localStorage.setItem("userId" , data?.userId) 
+        localStorage.setItem("")
         setModalShow(false);
         alert("Logged In Successfully");
       } catch (e) {
@@ -72,12 +72,11 @@ const Navbar = ({ width, setWidth }) => {
 
   function ViewUser(props) {
     const [data, setData] = useState([]);
-    const UserId  = localStorage.getItem("userId")
 
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `https://kc1ey9vyn6.execute-api.ap-south-1.amazonaws.com/dev/api/v1/profile/me/${UserId}`
+          `https://kc1ey9vyn6.execute-api.ap-south-1.amazonaws.com/dev/api/v1/profile/me/764564`
         );
         setData(data);
       } catch (e) {

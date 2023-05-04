@@ -192,7 +192,7 @@ export function PortfoliModal(props) {
         },
         {
           headers: {
-            Authorization: `Bearer ${UserId} ${SessionId} `,
+            Authorization: `Bearer 764564 ${SessionId} `,
           },
         }
       );
@@ -340,7 +340,6 @@ export function PortfoliModal(props) {
 export function FundsModal(props) {
   const [data, setData] = useState([]);
   const SessionId = localStorage.getItem("sessionId");
-  const UserId  = localStorage.getItem("userId")
 
   const fetchData = useCallback(async () => {
     try {
@@ -348,7 +347,7 @@ export function FundsModal(props) {
         "https://ant.aliceblueonline.com/rest/AliceBlueAPIService/api/limits/getRmsLimits",
         {
           headers: {
-            Authorization: `Bearer ${UserId} ${SessionId}`,
+            Authorization: `Bearer 764564 ${SessionId}`,
           },
         }
       );

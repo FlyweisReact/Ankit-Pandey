@@ -70,7 +70,7 @@ const Navbar = ({ width, setWidth }) => {
     );
   }
 
-  function ViewUser(props) {
+  function ViewUser(props) {r
     const [data, setData] = useState([]);
     const UserId  = localStorage.getItem("userId")
 

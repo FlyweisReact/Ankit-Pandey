@@ -30,7 +30,6 @@ const Sidebar = ({ width }) => {
   const [fundModalOpen, setFundModalOpen] = useState(false);
   const [openModal2, setOpenModal2] = useState(false);
   const [ cashback , setCashBack ] = useState("")
-  const UserId  = localStorage.getItem("userId")
 
   function LogOut() {
     localStorage.clear();
@@ -39,7 +38,7 @@ const Sidebar = ({ width }) => {
 
   const fetchCash = async () => {
     try{  
-      const { data } = await axios.get(`https://kc1ey9vyn6.execute-api.ap-south-1.amazonaws.com/dev/api/v1/profile/cash/${UserId}`)
+      const { data } = await axios.get(`https://kc1ey9vyn6.execute-api.ap-south-1.amazonaws.com/dev/api/v1/profile/cash/${}`)
       setCashBack(data.result.cash)
     }catch(e) { 
       console.log(e)

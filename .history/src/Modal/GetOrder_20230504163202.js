@@ -28,7 +28,7 @@ export function OrderModal(props) {
 
   const putCash = async () => { 
     try{
-      const { data }  = await axios.put(`https://kc1ey9vyn6.execute-api.ap-south-1.amazonaws.com/dev/api/v1/profile/cash/${UserId}`)
+      const { data }  = await axios.put(`https://kc1ey9vyn6.execute-api.ap-south-1.amazonaws.com/dev/api/v1/profile/cash/${}`)
       console.log(data)
     }catch(e)  { 
       console.log(e)
@@ -41,7 +41,7 @@ export function OrderModal(props) {
         "https://ant.aliceblueonline.com/rest/AliceBlueAPIService/api/placeOrder/fetchOrderBook",
         {
           headers: {
-            Authorization: `Bearer ${UserId} ${SessionId} `,
+            Authorization: `Bearer 764564 ${SessionId} `,
           },
         }
       );
@@ -180,7 +180,6 @@ export function PortfoliModal(props) {
   const [data, setData] = useState([]);
   const [show, setShow] = useState(false);
   const SessionId = localStorage.getItem("sessionId");
-  const UserId  = localStorage.getItem("userId")
 
   const postHandler = async (e) => {
     e.preventDefault();
@@ -192,7 +191,7 @@ export function PortfoliModal(props) {
         },
         {
           headers: {
-            Authorization: `Bearer ${UserId} ${SessionId} `,
+            Authorization: `Bearer 764564 ${SessionId} `,
           },
         }
       );
@@ -340,7 +339,6 @@ export function PortfoliModal(props) {
 export function FundsModal(props) {
   const [data, setData] = useState([]);
   const SessionId = localStorage.getItem("sessionId");
-  const UserId  = localStorage.getItem("userId")
 
   const fetchData = useCallback(async () => {
     try {
@@ -348,7 +346,7 @@ export function FundsModal(props) {
         "https://ant.aliceblueonline.com/rest/AliceBlueAPIService/api/limits/getRmsLimits",
         {
           headers: {
-            Authorization: `Bearer ${UserId} ${SessionId}`,
+            Authorization: `Bearer 764564 ${SessionId}`,
           },
         }
       );

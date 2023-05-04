@@ -77,7 +77,7 @@ const Navbar = ({ width, setWidth }) => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `https://kc1ey9vyn6.execute-api.ap-south-1.amazonaws.com/dev/api/v1/profile/me/${UserId}`
+          `https://kc1ey9vyn6.execute-api.ap-south-1.amazonaws.com/dev/api/v1/profile/me/764564`
         );
         setData(data);
       } catch (e) {

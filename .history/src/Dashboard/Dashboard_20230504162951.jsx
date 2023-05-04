@@ -13,7 +13,6 @@ import { MyContext } from "../Homepage/MyContext";
 
 const Dashboard = () => {
   const { myState , setMyState  , secondTab , setSecondState , historicalData  } = useContext(MyContext)
-
   
 
   return (
