@@ -31,15 +31,14 @@ const Navbar = ({ width, setWidth }) => {
         if (data.message.stat === "Ok") {
           localStorage.setItem("sessionId", data?.message?.sessionID);
           localStorage.setItem("userId", data?.userId);
+          setModalShow(false);
           setLoginMessage(true)
-          setTimeout(() => {
-            window.location.reload(true)
-          },[1000 ])
         }else{
           setErrorMessage(true)
         }
       } catch (e) {
         console.log(e);
+        alert("Check Credentials");
       }
     };
 
@@ -56,7 +55,7 @@ const Navbar = ({ width, setWidth }) => {
         <Modal.Body>
           <Form onSubmit={LoginUser}>
           {LoginMessage ? <Alert variant="success" >Logged In </Alert> : ""}
-          {errorMessage ? <Alert variant="danger" > Check Your Credentials  </Alert> : ""}
+          {errorMessage ? <Alert variant="danger" >L </Alert> : ""}
             <Form.Group className="mb-3">
               <Form.Label>User Id</Form.Label>
               <Form.Control

@@ -33,7 +33,7 @@ const Navbar = ({ width, setWidth }) => {
           localStorage.setItem("userId", data?.userId);
           setLoginMessage(true)
           setTimeout(() => {
-            window.location.reload(true)
+            window.loc
           },[1000 ])
         }else{
           setErrorMessage(true)

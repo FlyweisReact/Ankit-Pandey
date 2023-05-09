@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./Navbar.css";
 import { AiOutlineSearch } from "react-icons/ai";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { Alert, Button, Container, Form, Modal } from "react-bootstrap";
+import { Button, Container, Form, Modal } from "react-bootstrap";
 import axios from "axios";
 import { MyContext } from "../MyContext";
 
@@ -31,15 +31,14 @@ const Navbar = ({ width, setWidth }) => {
         if (data.message.stat === "Ok") {
           localStorage.setItem("sessionId", data?.message?.sessionID);
           localStorage.setItem("userId", data?.userId);
+          setModalShow(false);
           setLoginMessage(true)
-          setTimeout(() => {
-            window.location.reload(true)
-          },[1000 ])
         }else{
           setErrorMessage(true)
         }
       } catch (e) {
         console.log(e);
+        alert("Check Credentials");
       }
     };
 
@@ -55,8 +54,7 @@ const Navbar = ({ width, setWidth }) => {
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={LoginUser}>
-          {LoginMessage ? <Alert variant="success" >Logged In </Alert> : ""}
-          {errorMessage ? <Alert variant="danger" > Check Your Credentials  </Alert> : ""}
+          {LoginMessage ? << : ""}
             <Form.Group className="mb-3">
               <Form.Label>User Id</Form.Label>
               <Form.Control

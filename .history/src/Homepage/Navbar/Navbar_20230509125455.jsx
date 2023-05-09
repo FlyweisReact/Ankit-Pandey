@@ -31,15 +31,14 @@ const Navbar = ({ width, setWidth }) => {
         if (data.message.stat === "Ok") {
           localStorage.setItem("sessionId", data?.message?.sessionID);
           localStorage.setItem("userId", data?.userId);
+          setModalShow(false);
           setLoginMessage(true)
-          setTimeout(() => {
-            window.location.reload(true)
-          },[1000 ])
         }else{
           setErrorMessage(true)
         }
       } catch (e) {
         console.log(e);
+        alert("Check Credentials");
       }
     };
 
