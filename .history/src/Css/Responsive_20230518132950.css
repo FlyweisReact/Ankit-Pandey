@@ -1,0 +1,44 @@
+/** @format */
+
+@media screen and (min-width: 780px) and (max-width: 1500px) {
+  .gridCont {
+    gap: 20px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 980px) {
+  .gridCont {
+    display: block;
+  }
+  .clear2 {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gridCont {
+    display: block;
+  }
+  .clear2 {
+    margin-top: 20px;
+  }
+  .darkTheme{
+    position: relative;
+  }
+  .false-sidebar {
+    position: absolute;
+    background-color: #fff;
+  }
+
+  .activeSide{
+    display: none !important;
+  }
+
+  .false-sidebar .fa-x {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.6rem;
+  }
+}

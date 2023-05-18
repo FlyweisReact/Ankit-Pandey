@@ -1,0 +1,41 @@
+/** @format */
+
+.mobileSide {
+  display: none;
+}
+
+@media screen and (min-width: 780px) and (max-width: 1500px) {
+  .gridCont {
+    gap: 20px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 980px) {
+  .gridCont {
+    display: block;
+  }
+  .clear2 {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gridCont {
+    display: block;
+  }
+  .clear2 {
+    margin-top: 20px;
+  }
+ .true-side{
+    display: none;
+ }
+  .hamber {
+    display: none;
+  }
+  .mobileSide {
+    display: block;
+  }
+  .false-sidebar-menu{
+    margin: 0;
+  }
+}

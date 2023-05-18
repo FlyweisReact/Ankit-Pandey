@@ -1,0 +1,500 @@
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+* {
+  box-sizing: border-box;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.profileImage{
+  width: 60px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.logOutBtn{
+  color: #19376d;
+  padding: 5px;
+  margin-right: 20px;
+  border: 1px solid #19376d;
+  transition: 0.5s;
+}
+.logOutBtn:hover{
+  background-color: #19376d;
+  color: #fff;
+}
+
+.profile{
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.loginbtn{
+  border: 1px solid #041668;
+  background-color: #041668;
+  color: #fff;
+  width: 100px;
+  padding: 5px;
+}
+.sideItem{
+  display: flex;
+  gap: 6px;
+  font-size: 16px;
+  margin-top: 40px;
+  cursor: pointer;
+}
+.DropdownDiv{
+  text-align: center;
+}
+.dropDn{
+  background-color: #041668 !important;
+  border: 2px solid #041668  !important; 
+  margin-bottom: 15%;
+}
+.DropdownDiv  .dropMenu{
+  height: 100px !important;
+  width: 190px !important;
+  text-align: center !important;
+}
+
+
+.overflowCont{
+  width: 100%;
+  overflow: auto;
+}
+
+.headP{
+  font-size: 1.6rem;
+}
+.false-sidebar-menu{
+  border: 2px solid #a4c0ed;
+  margin: 5%;
+  background-color: #a4c0ed;
+  padding: 15%;
+  min-height: 500px;
+  border-radius: 10px;
+}
+
+.ThemeDropDown{
+  background-color: transparent  !important;
+  margin-left: 0  !important;
+  margin-top: 20px;
+}
+
+.ThemeDropDown .dropDwn{
+  background-color: transparent  !important;
+  color: #000;
+  border: none;
+  display: flex;
+  gap: 10px;
+  margin-left: 0px !important;
+  align-items: center;
+  font-size: 16px;
+}
+.ThemeDropDown .dropDwn:hover{
+  color: #000;
+}
+.ThemeDropDown .dropDwn:focus{
+  color: #000;
+}
+
+
+/* Dark Theme */
+.darkTheme{
+  background-color: #000 !important ; 
+}
+.darkTheme .false-sidebar {
+  background-color:black;
+}
+.darkTheme .false-logo {
+  color:#fff;
+}
+
+.darkNavbar .false-navbar{
+  background-color: #000;
+}
+
+
+.headingClose{
+  display: flex;
+  justify-content: space-between;
+}
+.headingClose p{
+  font-size: 2rem;
+}
+.headingClose .fa-x{
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+
+/* Responsive  */
+@media screen and (min-width: 780px) and (max-width: 1500px) {}
+@media screen and (min-width: 600px) and (max-width: 980px) {
+  .MainNav {
+    max-width: 800px;
+  }
+  .child {
+    max-width: 800px !important;
+  }
+  .ImageCarousel {
+    max-width: 800px;
+  }
+  .two-sec {
+    max-width: 800px;
+  }
+  .two-sec .right h1 {
+    font-size: 1.6rem;
+  }
+  .two-sec .right p {
+    font-size: 18px;
+  }
+  .two-sec .right button {
+    font-size: 24px;
+  }
+  .pro {
+    max-width: 800px;
+  }
+  .pro h1 {
+    font-size: 1.6rem;
+  }
+  .pro button {
+    font-size: 24px;
+  }
+  .NewProductS {
+    max-width: 800px;
+  }
+  .NewProductS .item .imgeOuter {
+    height: 200px;
+  }
+  .myHr {
+    max-width: 800px !important;
+  }
+  .myNewSec {
+    max-width: 800px;
+  }
+  .myNewOldSec {
+    max-width: 800px;
+    gap: 0px;
+  }
+  .myNewOldSec .left {
+    width: 45%;
+  }
+  .myNewOldSec .right {
+    width: 45%;
+  }
+  .many {
+    max-width: 800px;
+  }
+  .BanImage {
+    max-width: 800px;
+  }
+  .human {
+    max-width: 800px;
+  }
+  .footer .all {
+    max-width: 800px;
+  }
+  .Gamers {
+    max-width: 800px !important;
+  }
+  #FileBtn {
+    bottom: 160px;
+    left: 54%;
+  }
+  .two-sec-form {
+    max-width: 800px;
+  }
+  .two-sec-form .right img {
+    height: 100% !important;
+  }
+
+  .BMIbutton {
+    margin-bottom: 20px;
+  }
+  .BMI {
+    margin-left: 10%;
+  }
+  .gym-B {
+    max-width: 800px !important;
+  }
+  .gym-B .left {
+    width: 48%;
+  }
+  .men-b {
+    max-width: 800px !important;
+    height: 550px;
+  }
+  .men-b .left {
+    padding-top: 0;
+    width: 40%;
+    position: relative;
+  }
+  .men-b .left p {
+    font-size: 2rem;
+  }
+  .men-b .left h1 {
+    font-size: 2rem;
+  }
+  .men-b .left button {
+    position: absolute;
+    bottom: 120px;
+    width: 200px;
+    left: 20px;
+  }
+  .men-b .left .nap {
+    bottom: 10px;
+  }
+  .MyOrderHead {
+    max-width: 800px !important;
+  }
+  .StatusRefund {
+    max-width: 800px !important;
+  }
+  .StatusRefundBox {
+    max-width: 800px !important;
+  }
+  .MyOrderPlaced {
+    max-width: 800px !important;
+  }
+  .OrderSum {
+    max-width: 800px;
+  }
+  .OrderSumSection {
+    max-width: 800px;
+  }
+  .OrderSumInvoice {
+    max-width: 800px;
+  }
+  .return {
+    max-width: 800px;
+  }
+  .MyOrderTwoSec {
+    max-width: 800px;
+  }
+  .ReturnCom {
+    max-width: 800px;
+  }
+  .shopping {
+    max-width: 800px;
+  }
+  .shoppingAddress {
+    max-width: 800px;
+  }
+  .shoppingTwoSec {
+    max-width: 800px;
+  }
+  .StatusRefundTwoSec {
+    max-width: 800px;
+  }
+  .your-add-threeSec {
+    max-width: 800px;
+    grid-template-columns: auto auto;
+  }
+  .your-add {
+    max-width: 800px;
+  }
+  .profileEdit {
+    max-width: 800px;
+  }
+  .customerSer {
+    max-width: 800px;
+  }
+  .customerSerHead {
+    max-width: 800px;
+  }
+  .specialTable {
+    max-width: 400px !important;
+  }
+  .FAQ {
+    max-width: 800px;
+  }
+  .FAQInput {
+    max-width: 800px;
+  }
+  .FAQtwosec {
+    max-width: 800px;
+  }
+
+  .facial {
+    max-width: 800px;
+  }
+  .facialH1 {
+    max-width: 800px;
+  }
+  .facialAdd {
+    max-width: 800px;
+  }
+  .facialDesc {
+    max-width: 800px;
+  }
+  .facialTwosec {
+    max-width: 800px;
+    display: block;
+  }
+  .facialTwosec .left {
+    width: 60%;
+    margin-bottom: 20px !important;
+    margin: auto;
+  }
+  .facialCon {
+    max-width: 800px;
+  }
+  .facialThreeSec {
+    max-width: 800px;
+  }
+  .facialThreeImg {
+    max-width: 800px;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+  }
+  .facialThreeImg div {
+    width: 380px;
+    margin-top: 5% !important;
+  }
+
+  .returnRefundPdiv {
+    max-width: 800px;
+  }
+  .returnRefundPdiv2 {
+    max-width: 800px;
+  }
+
+  .SingleP {
+    max-width: 800px;
+    display: block;
+    position: relative;
+  }
+
+  .nnn {
+    margin-top: 0;
+    margin-right: 0;
+  }
+
+  .SingleP .midOilthree {
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto auto;
+    width: 300px;
+    position: absolute;
+    justify-content: center;
+  }
+  .SingleP .mid img {
+    width: 100%;
+  }
+  .vegLogo .first img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .amazon {
+    display: block;
+    margin: auto;
+    text-align: center;
+    max-width: 800px;
+    margin-top: 5% !important;
+  }
+  .amazon h2 {
+    border-bottom: 0px !important;
+  }
+  .SingleP .right {
+    width: 100%;
+  }
+
+  .SingleP .right .left {
+    display: none;
+  }
+
+  .Tog {
+    max-width: 800px;
+  }
+
+  .Syrup {
+    max-width: 800px;
+  }
+
+  .Syrup .ImagesS {
+    width: 250px;
+    height: 250px;
+  }
+
+  .plus {
+    padding-top: 20px;
+  }
+
+  .technI {
+    max-width: 800px;
+  }
+  .TB {
+    max-width: 800px;
+  }
+  .ProductReviews {
+    max-width: 800px;
+  }
+  .shoppingH2 {
+    max-width: 800px;
+  }
+  .shoppingTrackBtn {
+    max-width: 800px;
+    gap: 10px;
+  }
+  .OrderSummary {
+    max-width: 800px;
+    display: block;
+  }
+  .OrderSummary .left {
+    width: 100%;
+  }
+  .OrderSummary .right {
+    width: 100%;
+    margin: auto;
+  }
+  #MyFormNew {
+    margin-left: auto;
+  }
+  .ReturnRefund {
+    max-width: 800px;
+  }
+  .secondSummm {
+    max-width: 800px;
+  }
+  .ReturnRefund button {
+    width: 200px;
+  }
+
+  .specialLastBtn{
+    margin-left: 0% !important;
+    display: block !important;
+    margin: auto !important;
+    margin-bottom: 5% !important;
+  }
+}
+
