@@ -20536,7 +20536,7 @@ const Navbar = ({ setHamb, hamb }) => {
     },
   ];
 
-  console.log("Appendix" ,Appendix )
+  console.log("GraphData" ,GraphSearchData )
 
   const filterAppendix = Appendix.filter((i) =>
     i.name?.toLowerCase().includes(appConst?.toLowerCase())

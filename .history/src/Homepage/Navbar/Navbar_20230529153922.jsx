@@ -20489,7 +20489,7 @@ const Navbar = ({ setHamb, hamb }) => {
     }
   ]
 
-  console.log("GraphData" ,GraphSearchData )
+  console.log("")
 
   const filterData = GraphSearchData?.filter((i) =>
     i?.Symbol?.toLowerCase().includes(searchConst?.toLowerCase())
@@ -20535,8 +20535,6 @@ const Navbar = ({ setHamb, hamb }) => {
       name: "BCO",
     },
   ];
-
-  console.log("Appendix" ,Appendix )
 
   const filterAppendix = Appendix.filter((i) =>
     i.name?.toLowerCase().includes(appConst?.toLowerCase())
