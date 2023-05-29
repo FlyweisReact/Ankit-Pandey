@@ -20490,9 +20490,19 @@ const Navbar = ({ setHamb, hamb }) => {
   );
   const [appConst, setAppConst] = useState(localStorage.getItem("Exchange"));
 
+
+
+  const GraphSearchData = [
+ {
+  Symbol : 'RELIANCE' ,
+  Token : '2885'
+ }
+  ];
+
   const filterData = GraphSearchData.filter((i) =>
     i.Symbol?.toLowerCase().includes(searchConst?.toLowerCase())
   );
+
 
   const Appendix = [
     {
@@ -20536,7 +20546,7 @@ const Navbar = ({ setHamb, hamb }) => {
     i.name?.toLowerCase().includes(appConst?.toLowerCase())
   );
 
-  console.log("appen", Appendix, filterAppendix);
+  console.log('appen' , Appendix , filterAppendix)
 
   return (
     <>
@@ -20597,31 +20607,18 @@ const Navbar = ({ setHamb, hamb }) => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                {filterAppendix?.length === 0
-                  ? Appendix?.map((i) => (
-                      <Dropdown.Item
-                        onClick={() => {
-                          localStorage.setItem("Exchange", i.name);
-                          window.location.reload();
-                          setAppConst(i.name);
-                        }}
-                      >
-                        {" "}
-                        {i.name}
-                      </Dropdown.Item>
-                    ))
-                  : filterAppendix?.map((i) => (
-                      <Dropdown.Item
-                        onClick={() => {
-                          localStorage.setItem("Exchange", i.name);
-                          window.location.reload();
-                          setAppConst(i.name);
-                        }}
-                      >
-                        {" "}
-                        {i.name}
-                      </Dropdown.Item>
-                    ))}
+                {filterAppendix?.map((i) => (
+                  <Dropdown.Item
+                    onClick={() => {
+                      localStorage.setItem("Exchange", i.name);
+                      window.location.reload();
+                      setAppConst(i.name);
+                    }}
+                  >
+                    {" "}
+                    {i.name} 
+                  </Dropdown.Item>
+                ))}
               </Dropdown.Menu>
             </Dropdown>
 
@@ -20643,33 +20640,19 @@ const Navbar = ({ setHamb, hamb }) => {
               <Dropdown.Menu
                 style={{ maxHeight: "500px", overflowY: "scroll" }}
               >
-                {filterData?.length === 0
-                  ? GraphSearchData?.map((i) => (
-                      <Dropdown.Item
-                        onClick={() => {
-                          localStorage.setItem("Symbol", i.Symbol);
-                          localStorage.setItem("token", i.Token);
-                          window.location.reload();
-                          setSearchConst(i.name);
-                        }}
-                      >
-                        {" "}
-                        {i.Symbol}
-                      </Dropdown.Item>
-                    ))
-                  : filterData?.map((i) => (
-                      <Dropdown.Item
-                        onClick={() => {
-                          localStorage.setItem("Symbol", i.Symbol);
-                          localStorage.setItem("token", i.Token);
-                          window.location.reload();
-                          setSearchConst(i.name);
-                        }}
-                      >
-                        {" "}
-                        {i.Symbol}{" "}
-                      </Dropdown.Item>
-                    ))}
+                {filterData?.map((i) => (
+                  <Dropdown.Item
+                    onClick={() => {
+                      localStorage.setItem("Symbol", i.Symbol);
+                      localStorage.setItem("token", i.Token);
+                      window.location.reload();
+                      setSearchConst(i.name);
+                    }}
+                  >
+                    {" "}
+                    {i.Symbol}{" "}
+                  </Dropdown.Item>
+                ))}
               </Dropdown.Menu>
             </Dropdown>
 

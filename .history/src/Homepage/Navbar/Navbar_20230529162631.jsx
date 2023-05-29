@@ -20597,31 +20597,10 @@ const Navbar = ({ setHamb, hamb }) => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                {filterAppendix?.length === 0
-                  ? Appendix?.map((i) => (
-                      <Dropdown.Item
-                        onClick={() => {
-                          localStorage.setItem("Exchange", i.name);
-                          window.location.reload();
-                          setAppConst(i.name);
-                        }}
-                      >
-                        {" "}
-                        {i.name}
-                      </Dropdown.Item>
-                    ))
-                  : filterAppendix?.map((i) => (
-                      <Dropdown.Item
-                        onClick={() => {
-                          localStorage.setItem("Exchange", i.name);
-                          window.location.reload();
-                          setAppConst(i.name);
-                        }}
-                      >
-                        {" "}
-                        {i.name}
-                      </Dropdown.Item>
-                    ))}
+              {
+                filterAppendix?.length === 0 ? 
+              }
+              }
               </Dropdown.Menu>
             </Dropdown>
 
@@ -20654,7 +20633,7 @@ const Navbar = ({ setHamb, hamb }) => {
                         }}
                       >
                         {" "}
-                        {i.Symbol}
+                        {i.Symbol} 
                       </Dropdown.Item>
                     ))
                   : filterData?.map((i) => (
