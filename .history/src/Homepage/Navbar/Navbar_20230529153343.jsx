@@ -8,7 +8,8 @@ import { MyContext } from "../MyContext";
 import { MobileBar } from "../../Modal/MobileBar";
 import { LoginModal, UserProfileModal } from "../../Modal/GetOrder";
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
-
+// import GraphSearch from "../../Json/GraphSearch.json";
+import menu from "../../Json/menu";
 
 const Navbar = ({ setHamb, hamb }) => {
   const [modalShow, setModalShow] = useState(false);
@@ -20489,7 +20490,7 @@ const Navbar = ({ setHamb, hamb }) => {
     }
   ]
 
-  const filterData = GraphSearchData?.filter((i) =>
+  const filterData = menu?.filter((i) =>
     i?.Symbol?.toLowerCase().includes(searchConst?.toLowerCase())
   );
 
