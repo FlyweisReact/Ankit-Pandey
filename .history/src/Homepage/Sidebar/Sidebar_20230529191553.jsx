@@ -127,7 +127,7 @@ const Sidebar = ({ width, setWidth }) => {
                 ""
               )}
 
-              <div className="sideItem" onClick={() => setShowss(!showss)}>
+              <div className="sideItem">
                 <BsCashCoin style={{ width: " 20px", height: "20px" }}  />{" "}
                 Cashback 
                

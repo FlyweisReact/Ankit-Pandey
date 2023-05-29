@@ -27,7 +27,6 @@ export function MobileBar() {
   const [cashback, setCashBack] = useState("");
   const UserId = localStorage.getItem("userId")
   const [ loginShow , setLoginShow ] = useState(false)
-  const [ showss , setShowss] = useState(false)
 
   function LogOut() {
     localStorage.clear();
@@ -55,7 +54,7 @@ export function MobileBar() {
       <HistoricalModal show={openModal2} onHide={() => setOpenModal2(false)} />
       <PlaceOrderModal show={modalShow} onHide={() => setModalShow(false)} />
 
-      <i className="fa-solid fa-bars" onClick={handleShow} style={{color : 'black'}}></i>
+      <i className="fa-solid fa-bars" onClick={handleShow} style={{}}></i>
       <Offcanvas show={show} onHide={handleClose}>
         <i
           className="fa-solid fa-x"
@@ -135,30 +134,6 @@ export function MobileBar() {
                 ) : (
                   ""
                 )}
-
-
-                <div className="sideItem" onClick={() => setShowss(!showss)}>
-                <BsCashCoin style={{ width: " 20px", height: "20px" }}  />{" "}
-                Cashback 
-               
-              </div>
-              {showss ? (
-                <span
-                  style={{
-                    marginLeft: "60%",
-                    fontSize: "13px",
-                    fontWeight: "600",
-                    cursor: "pointer",
-                  }}
-                >
-                  {" "}
-                  (Rs {cashback}){" "}
-                </span>
-              ) : (
-                ""
-              )}
-
-
                 <div
                   className="sideItem"
                   onClick={() => {

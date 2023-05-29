@@ -27,6 +27,7 @@ export function MobileBar() {
   const [cashback, setCashBack] = useState("");
   const UserId = localStorage.getItem("userId")
   const [ loginShow , setLoginShow ] = useState(false)
+  
   const [ showss , setShowss] = useState(false)
 
   function LogOut() {
