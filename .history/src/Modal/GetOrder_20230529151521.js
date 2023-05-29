@@ -643,8 +643,8 @@ export function PlaceOrderModal(props) {
       centered
     >
       <Modal.Body>
-        <div className="Login_Modal">
-          <i
+      <div className="Login_Modal">
+      <i
             className="fa-sharp fa-regular fa-circle-xmark Close_Btn"
             onClick={() => props.onHide()}
           ></i>
@@ -652,111 +652,114 @@ export function PlaceOrderModal(props) {
             <p>Place Order</p>
           </div>
           <div>
-            <Form onSubmit={postHandler}>
-              <Form.Group className="mb-3">
-                <Form.Select
-                  aria-label="Default select example"
-                  onChange={(e) => setComplexty(e.target.value)}
-                  required
-                >
-                  <option>-- Select Complexty --</option>
-                  <option value="REGULAR">RGLR</option>
-                  <option value="BO">BO</option>
-                  <option value="AMO">AMO</option>
-                </Form.Select>
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>discqty</Form.Label>
-                <Form.Control
-                  type="number"
-                  onChange={(e) => setDiscqty(e.target.value)}
-                  placeholder="DisQty"
-                  required
-                />
-              </Form.Group>
+          <Form onSubmit={postHandler}>
+            <Form.Group className="mb-3">
+              <Form.Select
+                aria-label="Default select example"
+                onChange={(e) => setComplexty(e.target.value)}
+                required
+              >
+                <option>-- Select Complexty --</option>
+                <option value="REGULAR">RGLR</option>
+                <option value="BO">BO</option>
+                <option value="AMO">AMO</option>
+              </Form.Select>
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>discqty</Form.Label>
+              <Form.Control
+                type="number"
+                onChange={(e) => setDiscqty(e.target.value)}
+                placeholder='DisQty'
+                required
+              />
+            </Form.Group>
 
-              <Form.Group className="mb-3">
-                <Form.Select
-                  aria-label="Default select example"
-                  onChange={(e) => setpCode(e.target.value)}
-                  required
-                >
-                  <option>-- Select PCode --</option>
-                  <option value="MIS">MIS</option>
-                  <option value="CO">CO</option>
-                  <option value="BO">BO</option>
-                  <option value="CNC">CNC</option>
-                  <option value="NRML">NRML</option>
-                </Form.Select>
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Select
-                  aria-label="Default select example"
-                  onChange={(e) => setPrctyp(e.target.value)}
-                  required
-                >
-                  <option>-- Select prctyp --</option>
-                  <option value="MKT">MARKET</option>
-                  <option value="L">LIMIT</option>
-                  <option value="SL">SL</option>
-                  <option value="SL-M">SL-M</option>
-                </Form.Select>
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>price</Form.Label>
-                <Form.Control
-                  type="number"
-                  onChange={(e) => setPrice(e.target.value)}
-                  placeholder="Price"
-                  required
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>qty</Form.Label>
-                <Form.Control
-                  type="number"
-                  onChange={(e) => setQty(e.target.value)}
-                  placeholder="Quantity"
-                  required
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>ret</Form.Label>
-                <Form.Select
-                  aria-label="Default select example"
-                  onChange={(e) => setRet(e.target.value)}
-                  required
-                >
-                  <option>-- Select ret --</option>
-                  <option value="DAY">DAY</option>
-                  <option value="IOC">IOC</option>
-                </Form.Select>
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>transtype</Form.Label>
-                <Form.Select
-                  aria-label="Default select example"
-                  onChange={(e) => setTranstype(e.target.value)}
-                  required
-                >
-                  <option>-- Select Transtype --</option>
-                  <option value="BUY">Buy</option>
-                  <option value="SELL">Sell</option>
-                </Form.Select>
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>trigPrice</Form.Label>
-                <Form.Control
-                  type="number"
-                  onChange={(e) => setTrigPrice(e.target.value)}
-                  placeholder="Trig Price"
-                  required
-                />
-              </Form.Group>
-              <button type="submit">Submit</button>
-            </Form>
-          </div>
+            <Form.Group className="mb-3">
+              <Form.Select
+                aria-label="Default select example"
+                onChange={(e) => setpCode(e.target.value)}
+                required
+              >
+                <option>-- Select PCode --</option>
+                <option value="MIS">MIS</option>
+                <option value="CO">CO</option>
+                <option value="BO">BO</option>
+                <option value="CNC">CNC</option>
+                <option value="NRML">NRML</option>
+              </Form.Select>
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Select
+                aria-label="Default select example"
+                onChange={(e) => setPrctyp(e.target.value)}
+                required
+              >
+                <option>-- Select prctyp --</option>
+                <option value="MKT">MARKET</option>
+                <option value="L">LIMIT</option>
+                <option value="SL">SL</option>
+                <option value="SL-M">SL-M</option>
+              </Form.Select>
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>price</Form.Label>
+              <Form.Control
+                type="number"
+                onChange={(e) => setPrice(e.target.value)}
+                placeholder='Price'
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>qty</Form.Label>
+              <Form.Control
+                type="number"
+                onChange={(e) => setQty(e.target.value)}
+                placeholder='Quantity'
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>ret</Form.Label>
+              <Form.Select
+                aria-label="Default select example"
+                onChange={(e) => setRet(e.target.value)}
+                required
+              >
+                <option>-- Select ret --</option>
+                <option value="DAY">DAY</option>
+                <option value="IOC">IOC</option>
+              </Form.Select>
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>transtype</Form.Label>
+              <Form.Select
+                aria-label="Default select example"
+                onChange={(e) => setTranstype(e.target.value)}
+                required
+              >
+                <option>-- Select Transtype --</option>
+                <option value="BUY">Buy</option>
+                <option value="SELL">Sell</option>
+              </Form.Select>
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>trigPrice</Form.Label>
+              <Form.Control
+                type="number"
+                onChange={(e) => setTrigPrice(e.target.value)}
+                placeholder='Trig Price'
+                required
+              />
+            </Form.Group>
+            <button type="submit" >
+              Submit
+            </button>
+          </Form>
         </div>
+      </div>
+        
       </Modal.Body>
     </Modal>
   );

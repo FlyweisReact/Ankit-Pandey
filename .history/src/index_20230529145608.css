@@ -1,4 +1,4 @@
-/** @format */
+
 
 body {
   margin: 0;
@@ -33,66 +33,67 @@ code {
   background: #555;
 }
 
-.profileImage {
+.profileImage{
   width: 60px;
   margin-right: 20px;
   cursor: pointer;
 }
 
-.logOutBtn {
+.logOutBtn{
   color: #19376d;
   padding: 5px;
   margin-right: 20px;
   border: 1px solid #19376d;
   transition: 0.5s;
 }
-.logOutBtn:hover {
+.logOutBtn:hover{
   background-color: #19376d;
   color: #fff;
 }
 
-.profile {
+.profile{
   padding: 10px;
   border: 1px solid black;
 }
 
-.loginbtn {
+.loginbtn{
   border: 1px solid #041668;
   background-color: #041668;
   color: #fff;
   width: 100px;
   padding: 5px;
 }
-.sideItem {
+.sideItem{
   display: flex;
   gap: 6px;
   font-size: 16px;
   margin-top: 40px;
   cursor: pointer;
 }
-.DropdownDiv {
+.DropdownDiv{
   text-align: center;
 }
-.dropDn {
+.dropDn{
   background-color: #041668 !important;
-  border: 2px solid #041668 !important;
+  border: 2px solid #041668  !important; 
   margin-bottom: 15%;
 }
-.DropdownDiv .dropMenu {
+.DropdownDiv  .dropMenu{
   height: 100px !important;
   width: 190px !important;
   text-align: center !important;
 }
 
-.overflowCont {
+
+.overflowCont{
   width: 100%;
   overflow: auto;
 }
 
-.headP {
+.headP{
   font-size: 1.6rem;
 }
-.false-sidebar-menu {
+.false-sidebar-menu{
   border: 2px solid #a4c0ed;
   margin: 5%;
   background-color: #a4c0ed;
@@ -101,14 +102,14 @@ code {
   border-radius: 10px;
 }
 
-.ThemeDropDown {
-  background-color: transparent !important;
-  margin-left: 0 !important;
+.ThemeDropDown{
+  background-color: transparent  !important;
+  margin-left: 0  !important;
   margin-top: 20px;
 }
 
-.ThemeDropDown .dropDwn {
-  background-color: transparent !important;
+.ThemeDropDown .dropDwn{
+  background-color: transparent  !important;
   color: #000;
   border: none;
   display: flex;
@@ -117,41 +118,44 @@ code {
   align-items: center;
   font-size: 16px;
 }
-.ThemeDropDown .dropDwn:hover {
+.ThemeDropDown .dropDwn:hover{
   color: #000;
 }
-.ThemeDropDown .dropDwn:focus {
+.ThemeDropDown .dropDwn:focus{
   color: #000;
 }
+
 
 /* Dark Theme */
-.darkTheme {
-  background-color: #000 !important ;
+.darkTheme{
+  background-color: #000 !important ; 
 }
 .darkTheme .false-sidebar {
-  background-color: black;
+  background-color:black;
 }
 .darkTheme .false-logo {
-  color: #fff;
+  color:#fff;
 }
 
-.darkNavbar .false-navbar {
+.darkNavbar .false-navbar{
   background-color: #000;
 }
 
-.headingClose {
+
+.headingClose{
   display: flex;
   justify-content: space-between;
 }
-.headingClose p {
+.headingClose p{
   font-size: 2rem;
 }
-.headingClose .fa-x {
+.headingClose .fa-x{
   font-size: 1.4rem;
   cursor: pointer;
 }
 
-.false-sidebar .fa-x {
+
+.false-sidebar .fa-x{
   display: none;
 }
 
@@ -160,36 +164,25 @@ code {
   padding: 20px;
   position: relative;
 }
-.Login_Modal .LoginModal_Head {
+.Login_Modal .LoginModal_Head{
   text-align: center;
   margin: 0;
   background: rgba(41, 101, 255, 0.2);
-  border-radius: 26.0663px;
-  padding: 10px;
+border-radius: 26.0663px;
+padding: 10px;
+margin-top: 20px;
 }
-.Login_Modal .LoginModal_Head p {
+.Login_Modal .LoginModal_Head p{
   text-align: center;
   margin: 0;
-  font-weight: 800;
-  font-size: 16px;
-  color: #041668;
+font-weight: 800;
+font-size: 16px;
+color: #2965FF;
 }
 .Login_Modal .Close_Btn {
   position: absolute;
   top: 0;
   right: 0;
   cursor: pointer;
-  font-size: 1.6rem;
-}
-.Login_Modal form{
-  padding-top: 20px;
-}
-
-.Login_Modal button{
-  width: 100%;
-  background-color: #041668;
-  color: #fff;
-  border: 1px solid #041668;
-  padding: 10px;
-  border-radius: 5px;
+  font-size: 16pc;
 }

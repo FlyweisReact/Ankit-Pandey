@@ -172,7 +172,7 @@ code {
   margin: 0;
   font-weight: 800;
   font-size: 16px;
-  color: #041668;
+  color: #2965ff;
 }
 .Login_Modal .Close_Btn {
   position: absolute;
@@ -188,8 +188,8 @@ code {
 .Login_Modal button{
   width: 100%;
   background-color: #041668;
-  color: #fff;
-  border: 1px solid #041668;
-  padding: 10px;
-  border-radius: 5px;
+}
+.Login_Modal button:hover{
+  width: 100%;
+  background-color: #041668;
 }

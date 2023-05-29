@@ -188,8 +188,10 @@ code {
 .Login_Modal button{
   width: 100%;
   background-color: #041668;
-  color: #fff;
-  border: 1px solid #041668;
-  padding: 10px;
-  border-radius: 5px;
+}
+.Login_Modal button:hover ,
+.Login_Modal button:focus,
+.Login_Modal button:active{
+  width: 100%;
+  background-color: #041668;
 }
