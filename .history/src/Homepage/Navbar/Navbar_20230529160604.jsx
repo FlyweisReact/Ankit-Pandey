@@ -20493,10 +20493,41 @@ const Navbar = ({ setHamb, hamb }) => {
 
 
   const GraphSearchData = [
- {
-  Symbol : 'RELIANCE' ,
-  Token : '2885'
- }
+    {
+      name: "NSE",
+    },
+
+    {
+      name: "BSE",
+    },
+
+    {
+      name: "NFO",
+    },
+
+    {
+      name: "MCX",
+    },
+
+    {
+      name: "CDS",
+    },
+
+    {
+      name: "BFO",
+    },
+
+    {
+      name: "BCD",
+    },
+
+    {
+      name: "NCO",
+    },
+
+    {
+      name: "BCO",
+    },
   ];
 
   const filterData = GraphSearchData.filter((i) =>
@@ -20546,6 +20577,7 @@ const Navbar = ({ setHamb, hamb }) => {
   const filterAppendix = Appendix.filter((i) =>
     i.name?.toLowerCase().includes(appConst?.toLowerCase())
   );
+  // console.log("Appendix", filterAppendix);
 
   return (
     <>

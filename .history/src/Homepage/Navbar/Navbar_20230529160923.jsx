@@ -20494,13 +20494,12 @@ const Navbar = ({ setHamb, hamb }) => {
 
   const GraphSearchData = [
  {
-  Symbol : 'RELIANCE' ,
-  Token : '2885'
+  Symbol : 'RELIANCE'
  }
   ];
 
   const filterData = GraphSearchData.filter((i) =>
-    i.Symbol?.toLowerCase().includes(searchConst?.toLowerCase())
+    i.name?.toLowerCase().includes(searchConst?.toLowerCase())
   );
 
   console.log("GraphData", filterData);
@@ -20546,6 +20545,7 @@ const Navbar = ({ setHamb, hamb }) => {
   const filterAppendix = Appendix.filter((i) =>
     i.name?.toLowerCase().includes(appConst?.toLowerCase())
   );
+  // console.log("Appendix", filterAppendix);
 
   return (
     <>

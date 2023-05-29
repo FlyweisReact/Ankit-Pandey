@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <ToastContainer />
-      <Dashboard/>    
+      <Dashboard/>
     </>
   );
 }

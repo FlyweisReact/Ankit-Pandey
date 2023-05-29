@@ -20546,6 +20546,7 @@ const Navbar = ({ setHamb, hamb }) => {
   const filterAppendix = Appendix.filter((i) =>
     i.name?.toLowerCase().includes(appConst?.toLowerCase())
   );
+  // console.log("Appendix", filterAppendix);
 
   return (
     <>
