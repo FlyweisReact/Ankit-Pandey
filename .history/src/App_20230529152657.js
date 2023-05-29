@@ -4,9 +4,7 @@ import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
 
 function App() {
-  useEffect(() => {
-    alert('New')
-  },[])
+  useEffect
   return (
     <>
       <ToastContainer />
