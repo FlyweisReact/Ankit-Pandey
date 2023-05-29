@@ -111,7 +111,7 @@ const Dashboard = () => {
                         width: "20px",
                         height: "20px",
                         cursor: "pointer",
-                        margin : '0'
+                        margin '0'
                       }}
                       onClick={() => setMyState(false)}
                     />

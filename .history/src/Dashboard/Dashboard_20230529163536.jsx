@@ -108,8 +108,7 @@ const Dashboard = () => {
                   <div className="right">
                     <AiOutlineClose
                       style={{
-                        width: "20px",
-                        height: "20px",
+                        width: "40px",
                         cursor: "pointer",
                         margin : '0'
                       }}

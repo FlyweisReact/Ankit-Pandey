@@ -17,11 +17,8 @@ const Dashboard = () => {
     useContext(MyContext);
   const onLoadScriptRef = useRef();
 
-  const Exchange = localStorage.getItem("Exchange")
-  const Symbol = localStorage.getItem("Symbol")
-
-
-
+  const Exchange = localStorage.getItem("Exchange");
+  const Symbol = localStorage.getItem("Symbol");
 
   useEffect(() => {
     onLoadScriptRef.current = createWidget;
@@ -54,7 +51,7 @@ const Dashboard = () => {
           width: "100%",
           height: "100%",
           autosize: true,
-          symbol: Symbol ,
+          symbol: Symbol,
           interval: "D",
           timezone: Exchange,
           theme: "dark",
@@ -81,8 +78,6 @@ const Dashboard = () => {
   return (
     <>
       <div className="homeS">
-
-
         <div className="tradingview-widget-container">
           <div id="technical-analysis-chart-demo" />
           <div className="tradingview-widget-copyright"></div>
@@ -108,10 +103,9 @@ const Dashboard = () => {
                   <div className="right">
                     <AiOutlineClose
                       style={{
-                        width: "20px",
-                        height: "20px",
+                        width: "40px",
                         cursor: "pointer",
-                        margin : '0'
+                        margin: "0",
                       }}
                       onClick={() => setMyState(false)}
                     />
