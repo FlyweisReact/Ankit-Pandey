@@ -23,7 +23,6 @@ const Navbar = ({ setHamb, hamb }) => {
   );
 
 
-  // Symbol
 
   const Appendix = [
     {
