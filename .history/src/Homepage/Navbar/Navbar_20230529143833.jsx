@@ -61,7 +61,7 @@ const Navbar = ({ setHamb, hamb }) => {
   ];
 
   const filterAppendix = Appendix.filter((i) =>
-    i.name?.toLowerCase().includes(appConst?.toLowerCase())
+    i.name?.toLowerCase().includes(appConst.toLowerCase())
   );
 
   return (
