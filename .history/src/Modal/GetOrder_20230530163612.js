@@ -505,7 +505,6 @@ export function HistoricalModal(props) {
   const [to, setTo] = useState("");
   const { setMyState, setHistoricalData } = useContext(MyContext);
 
-
   const HistoricalData = async (e) => {
     e.preventDefault();
     try {
@@ -532,32 +531,24 @@ export function HistoricalModal(props) {
     }
   };
 
+  const [dateTime, setDateTime] = useState('');
 
 
-
-
-  const handleDateChange = (event) => {
+  const handleDateTimeChange = (event) => {
     const value = event.target.value;
-    convertDateToEpoch(value);
+    setDateTime(value);
   };
 
-  const convertDateToEpoch = (dateString) => {
-    const selectedDate = new Date(dateString);
-    const epoch = selectedDate.getTime() / 1000;
-    setFrom(epoch.toString());
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formattedDateTime = dateTime + ":00.000+00:00"; // Append missing parts
+    // Process the captured formattedDateTime value
+    console.log(formattedDateTime);
   };
 
-  const handleDateChange2 = (event) => {
-    const value = event.target.value;
-    convertDateToEpoch2(value);
-  };
-
-  const convertDateToEpoch2 = (dateString) => {
-    const selectedDate = new Date(dateString);
-    const epoch = selectedDate.getTime() / 1000;
-    setTo(epoch.toString());
-  };
-
+  function ChangeFormat (event) {
+      setFrom(event)
+  }
 
   return (
     <Modal
@@ -572,9 +563,16 @@ export function HistoricalModal(props) {
           <i class="fa-solid fa-x" onClick={() => props.onHide()}></i>
         </div>
 
-      
-  
-
+        <form onSubmit={handleSubmit}>
+      <label htmlFor="datetime">Select date and time:</label>
+      <input
+        type="datetime-local"
+        id="datetime"
+        value={dateTime}
+        onChange={handleDateTimeChange}
+      />
+      <button type="submit">Submit</button>
+    </form>
         <Form onSubmit={HistoricalData}>
           <Form.Select
             aria-label="Default select example"
@@ -590,15 +588,17 @@ export function HistoricalModal(props) {
             <Form.Label>From</Form.Label>
             <Form.Control
               type="datetime-local"
-         onChange={handleDateChange}
-           
+              onChange={(e) => {
+                setFrom(e.target.value);
+              }}
+              // onChan
             />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>To</Form.Label>
             <Form.Control
               type="datetime-local"
-              onChange={handleDateChange2}
+              onChange={(e) => setTo(e.target.value)}
             />
           </Form.Group>
 

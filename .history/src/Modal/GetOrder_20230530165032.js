@@ -505,23 +505,18 @@ export function HistoricalModal(props) {
   const [to, setTo] = useState("");
   const { setMyState, setHistoricalData } = useContext(MyContext);
 
-
   const HistoricalData = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://ant.aliceblueonline.com/rest/AliceBlueAPIService/api/chart/history",
+        "https://ankit-pandey-backend.vercel.app/api/v1/history",
         {
           token,
           resolution,
           from,
           to,
           exchange,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${UserId} ${SessionId}`,
-          },
+          userId : UserId
         }
       );
       setHistoricalData(data);
@@ -532,8 +527,39 @@ export function HistoricalModal(props) {
     }
   };
 
+  // const HistoricalData = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const { data } = await axios.post(
+  //       "https://ant.aliceblueonline.com/rest/AliceBlueAPIService/api/chart/history",
+  //       {
+  //         token,
+  //         resolution,
+  //         from,
+  //         to,
+  //         exchange,
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${UserId} ${SessionId}`,
+  //         },
+  //       }
+  //     );
+  //     setHistoricalData(data);
+  //     setMyState(true);
+  //     props.onHide();
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
 
 
+  function ChangeFormat (event) {
+      setFrom(event.target.value + ":00.000+00:00")
+  }
+  function ChangeFormat2 (event) {
+      setTo(event.target.value + ":00.000+00:00")
+  }
 
 
   const handleDateChange = (event) => {
@@ -549,7 +575,7 @@ export function HistoricalModal(props) {
 
   const handleDateChange2 = (event) => {
     const value = event.target.value;
-    convertDateToEpoch2(value);
+    convertDateToEpoch(value);
   };
 
   const convertDateToEpoch2 = (dateString) => {
@@ -598,7 +624,7 @@ export function HistoricalModal(props) {
             <Form.Label>To</Form.Label>
             <Form.Control
               type="datetime-local"
-              onChange={handleDateChange2}
+              onChange={handleDateChange}
             />
           </Form.Group>
 

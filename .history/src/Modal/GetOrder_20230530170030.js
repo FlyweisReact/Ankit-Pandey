@@ -505,6 +505,27 @@ export function HistoricalModal(props) {
   const [to, setTo] = useState("");
   const { setMyState, setHistoricalData } = useContext(MyContext);
 
+  // const HistoricalData = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const { data } = await axios.post(
+  //       "https://ankit-pandey-backend.vercel.app/api/v1/history",
+  //       {
+  //         token,
+  //         resolution,
+  //         from,
+  //         to,
+  //         exchange,
+  //         userId : UserId
+  //       }
+  //     );
+  //     setHistoricalData(data);
+  //     setMyState(true);
+  //     props.onHide();
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
 
   const HistoricalData = async (e) => {
     e.preventDefault();
@@ -533,29 +554,61 @@ export function HistoricalModal(props) {
   };
 
 
+  // function ChangeFormat (event) {
+  //     setFrom(event.target.value + ":00.000+00:00")
+  // }
+  // function ChangeFormat2 (event) {
+  //     setTo(event.target.value + ":00.000+00:00")
+  // }
 
 
+  // const handleDateChange = (event) => {
+  //   const value = event.target.value;
+  //   convertDateToEpoch(value);
+  // };
+
+  // const convertDateToEpoch = (dateString) => {
+  //   const selectedDate = new Date(dateString);
+  //   const epoch = selectedDate.getTime() / 1000;
+  //   setFrom(epoch.toString());
+  // };
+
+  // const handleDateChange2 = (event) => {
+  //   const value = event.target.value;
+  //   convertDateToEpoch2(value);
+  // };
+
+  // const convertDateToEpoch2 = (dateString) => {
+  //   const selectedDate = new Date(dateString);
+  //   const epoch = selectedDate.getTime() / 1000;
+  //   setTo(epoch.toString());
+  // };
+
+
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
+  const [epochTimestamp, setEpochTimestamp] = useState('');
 
   const handleDateChange = (event) => {
     const value = event.target.value;
-    convertDateToEpoch(value);
+    setDate(value);
+    convertDateTimeToEpoch(value, time);
   };
 
-  const convertDateToEpoch = (dateString) => {
-    const selectedDate = new Date(dateString);
-    const epoch = selectedDate.getTime() / 1000;
-    setFrom(epoch.toString());
-  };
-
-  const handleDateChange2 = (event) => {
+  const handleTimeChange = (event) => {
     const value = event.target.value;
-    convertDateToEpoch2(value);
+    setTime(value);
+    convertDateTimeToEpoch(date, value);
   };
 
-  const convertDateToEpoch2 = (dateString) => {
-    const selectedDate = new Date(dateString);
-    const epoch = selectedDate.getTime() / 1000;
-    setTo(epoch.toString());
+  const convertDateTimeToEpoch = (selectedDate, selectedTime) => {
+    if (selectedDate && selectedTime) {
+      const [year, month, day] = selectedDate.split('-');
+      const [hours, minutes] = selectedTime.split(':');
+      const dateTime = new Date(year, month - 1, day, hours, minutes);
+      const epoch = dateTime.getTime() / 1000;
+      setEpochTimestamp(epoch.toString());
+    }
   };
 
 

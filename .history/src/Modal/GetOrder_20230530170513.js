@@ -505,6 +505,27 @@ export function HistoricalModal(props) {
   const [to, setTo] = useState("");
   const { setMyState, setHistoricalData } = useContext(MyContext);
 
+  // const HistoricalData = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const { data } = await axios.post(
+  //       "https://ankit-pandey-backend.vercel.app/api/v1/history",
+  //       {
+  //         token,
+  //         resolution,
+  //         from,
+  //         to,
+  //         exchange,
+  //         userId : UserId
+  //       }
+  //     );
+  //     setHistoricalData(data);
+  //     setMyState(true);
+  //     props.onHide();
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
 
   const HistoricalData = async (e) => {
     e.preventDefault();

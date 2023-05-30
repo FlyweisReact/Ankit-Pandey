@@ -505,6 +505,27 @@ export function HistoricalModal(props) {
   const [to, setTo] = useState("");
   const { setMyState, setHistoricalData } = useContext(MyContext);
 
+  // const HistoricalData = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const { data } = await axios.post(
+  //       "https://ankit-pandey-backend.vercel.app/api/v1/history",
+  //       {
+  //         token,
+  //         resolution,
+  //         from,
+  //         to,
+  //         exchange,
+  //         userId : UserId
+  //       }
+  //     );
+  //     setHistoricalData(data);
+  //     setMyState(true);
+  //     props.onHide();
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
 
   const HistoricalData = async (e) => {
     e.preventDefault();
@@ -533,7 +554,12 @@ export function HistoricalModal(props) {
   };
 
 
-
+  // function ChangeFormat (event) {
+  //     setFrom(event.target.value + ":00.000+00:00")
+  // }
+  // function ChangeFormat2 (event) {
+  //     setTo(event.target.value + ":00.000+00:00")
+  // }
 
 
   const handleDateChange = (event) => {
@@ -597,7 +623,7 @@ export function HistoricalModal(props) {
           <Form.Group className="mb-3">
             <Form.Label>To</Form.Label>
             <Form.Control
-              type="datetime-local"
+              type="datetim"
               onChange={handleDateChange2}
             />
           </Form.Group>

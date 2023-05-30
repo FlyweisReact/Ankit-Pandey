@@ -505,7 +505,6 @@ export function HistoricalModal(props) {
   const [to, setTo] = useState("");
   const { setMyState, setHistoricalData } = useContext(MyContext);
 
-
   const HistoricalData = async (e) => {
     e.preventDefault();
     try {
@@ -533,31 +532,12 @@ export function HistoricalModal(props) {
   };
 
 
-
-
-
-  const handleDateChange = (event) => {
-    const value = event.target.value;
-    convertDateToEpoch(value);
-  };
-
-  const convertDateToEpoch = (dateString) => {
-    const selectedDate = new Date(dateString);
-    const epoch = selectedDate.getTime() / 1000;
-    setFrom(epoch.toString());
-  };
-
-  const handleDateChange2 = (event) => {
-    const value = event.target.value;
-    convertDateToEpoch2(value);
-  };
-
-  const convertDateToEpoch2 = (dateString) => {
-    const selectedDate = new Date(dateString);
-    const epoch = selectedDate.getTime() / 1000;
-    setTo(epoch.toString());
-  };
-
+  function ChangeFormat (event) {
+      setFrom(event.target.value + ":00.000+00:00")
+  }
+  function ChangeFormat2 (event) {
+      setTo(event.target.value + ":00.000+00:00")
+  }
 
   return (
     <Modal
@@ -573,8 +553,6 @@ export function HistoricalModal(props) {
         </div>
 
       
-  
-
         <Form onSubmit={HistoricalData}>
           <Form.Select
             aria-label="Default select example"
@@ -590,15 +568,15 @@ export function HistoricalModal(props) {
             <Form.Label>From</Form.Label>
             <Form.Control
               type="datetime-local"
-         onChange={handleDateChange}
-           
+              onChange={(e) => ChangeFormat(e) }
+              // onChan
             />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>To</Form.Label>
             <Form.Control
               type="datetime-local"
-              onChange={handleDateChange2}
+              onChange={(e) => }
             />
           </Form.Group>
 
