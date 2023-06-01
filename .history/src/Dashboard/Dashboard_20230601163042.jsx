@@ -3,9 +3,11 @@
 import React, { useContext, useEffect, useRef } from "react";
 import HOC from "../HOC";
 import "./Dashboard.css";
+import { GrClose } from "react-icons/gr";
 import Card from "react-bootstrap/Card";
 import { AiOutlineSearch } from "react-icons/ai";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { AiOutlineClose } from "react-icons/ai";
 import { Table } from "react-bootstrap";
 import { MyContext } from "../Homepage/MyContext";
 

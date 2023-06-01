@@ -3,9 +3,11 @@
 import React, { useContext, useEffect, useRef } from "react";
 import HOC from "../HOC";
 import "./Dashboard.css";
+import { GrClose } from "react-icons/gr";
 import Card from "react-bootstrap/Card";
 import { AiOutlineSearch } from "react-icons/ai";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { AiOutlineClose } from "react-icons/ai";
 import { Table } from "react-bootstrap";
 import { MyContext } from "../Homepage/MyContext";
 
@@ -150,7 +152,7 @@ const Dashboard = () => {
                     style={{
                       display: "flex",
                       justifyContent: "space-evenly",
-                      width: "100%",
+                      width: "280px",
                       border: "2px solid #041668",
                       backgroundColor: "rgba(12, 52, 240, 0.2)",
                       padding: "5px",
@@ -170,7 +172,15 @@ const Dashboard = () => {
                       style={{ width: "25px", height: "25px" }}
                     />
                   </p>
-            
+                  <GrClose
+                    color="black"
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      cursor: "pointer",
+                    }}
+                
+                  />
                 </div>
               </Card.Body>
             </Card>

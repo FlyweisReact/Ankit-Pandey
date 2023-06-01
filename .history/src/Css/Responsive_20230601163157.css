@@ -74,6 +74,11 @@
   .loginbtn{
     margin-top: 20px;
   }
+  .dropdown-button-search-1{
+    width: 120px !important;
+    gap: 0px !important;
+    padding-left: 0;
+  }
 
    .false-navbar .profileImage{
     display: none;
@@ -121,30 +126,6 @@
   }
   .false-navbar .right .loginbtn {
     display: none;
-  }
-  .false-navbar .right .profileImage {
-    display: none;
-  }
-  .false-navbar {
-    display: flex  !important;
-    width: 98% !important;
-    justify-content: flex-start;
-    margin: auto;
-  }
-  .false-navbar .right{
-    width: 90%;
-    display: flex;
-    gap: 5px;
-    justify-content: flex-start !important;
-  }
-  .false-navbar .right .dropdown{
-    width: 50% !important;
-  }
-  .false-navbar .right #dropdown-basic{
-    width: 100% !important;
-  }
-  .false-navbar .right #dropdown-basic input{
-    width: 100% !important;
   }
 
 

@@ -3,9 +3,11 @@
 import React, { useContext, useEffect, useRef } from "react";
 import HOC from "../HOC";
 import "./Dashboard.css";
+import { GrClose } from "react-icons/gr";
 import Card from "react-bootstrap/Card";
 import { AiOutlineSearch } from "react-icons/ai";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { AiOutlineClose } from "react-icons/ai";
 import { Table } from "react-bootstrap";
 import { MyContext } from "../Homepage/MyContext";
 
@@ -83,14 +85,10 @@ const Dashboard = () => {
 
         <div className="gridCont">
           {myState ? (
-            <Card className="clear" >
+            <Card className="clear">
               <Card.Body>
-                <i
-                  className="fa-solid fa-x"
-                  onClick={() => setMyState(false)}
-                ></i>
-
                 <div className="filterDiv">
+                  <div className="left">
                     <p className="clearP">
                       {" "}
                       <AiOutlineSearch
@@ -101,6 +99,14 @@ const Dashboard = () => {
                         style={{ width: "25px", height: "25px" }}
                       />
                     </p>
+                  </div>
+                  <div className="right">
+                    <i
+                      className="fa-solid fa-x"
+                      onClick={() => setMyState(false)}
+                    ></i>
+          
+                  </div>
                 </div>
 
                 <Table
@@ -111,10 +117,10 @@ const Dashboard = () => {
                 >
                   <thead>
                     <tr>
-                      <th>Time</th>
                       <th>Volume</th>
                       <th>High</th>
                       <th>Low</th>
+                      <th>Time</th>
                       <th>Close</th>
                       <th>Open</th>
                     </tr>
@@ -122,10 +128,10 @@ const Dashboard = () => {
                   <tbody>
                     {historicalData?.result?.map((i, index) => (
                       <tr key={index}>
-                        <td> {i.time} </td>
                         <td> {i.volume} </td>
                         <td> {i.high} </td>
                         <td> {i.low} </td>
+                        <td> {i.time} </td>
                         <td> {i.close} </td>
                         <td> {i.open} </td>
                       </tr>
@@ -141,16 +147,12 @@ const Dashboard = () => {
           {secondTab ? (
             <Card className="clear2">
               <Card.Body>
-              <i
-                  className="fa-solid fa-x"
-                  onClick={() => setSecondState(false)}
-                ></i>
                 <div className="filterDiv">
                   <p
                     style={{
                       display: "flex",
                       justifyContent: "space-evenly",
-                      width: "100%",
+                      width: "280px",
                       border: "2px solid #041668",
                       backgroundColor: "rgba(12, 52, 240, 0.2)",
                       padding: "5px",
@@ -170,7 +172,15 @@ const Dashboard = () => {
                       style={{ width: "25px", height: "25px" }}
                     />
                   </p>
-            
+                  <GrClose
+                    color="black"
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => setSecondState(false)}
+                  />
                 </div>
               </Card.Body>
             </Card>

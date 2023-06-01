@@ -43,7 +43,6 @@
   position: relative;
 }
 
-
 .clearP {
   display: flex;
   justify-content: space-evenly;
@@ -82,11 +81,4 @@
   top: 10px;
   cursor: pointer;
   right: 10px;
-}
-.clear2 .fa-x {
-  position: absolute;
-  top: 10px;
-  cursor: pointer;
-  right: 10px;
-  color: #000;
 }

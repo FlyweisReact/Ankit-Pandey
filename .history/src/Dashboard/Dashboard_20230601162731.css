@@ -40,9 +40,7 @@
   overflow: hidden;
   max-width: 700px;
   max-height: 300px;
-  position: relative;
 }
-
 
 .clearP {
   display: flex;
@@ -82,11 +80,4 @@
   top: 10px;
   cursor: pointer;
   right: 10px;
-}
-.clear2 .fa-x {
-  position: absolute;
-  top: 10px;
-  cursor: pointer;
-  right: 10px;
-  color: #000;
 }

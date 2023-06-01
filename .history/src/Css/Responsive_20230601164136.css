@@ -129,6 +129,7 @@
     display: flex  !important;
     width: 98% !important;
     justify-content: flex-start;
+    border: 1px solid black;
     margin: auto;
   }
   .false-navbar .right{
@@ -147,6 +148,12 @@
     width: 100% !important;
   }
 
+  /* .dropdown-button-search-1{
+    width: 80px !important;
+    border: 10px solid red;
+    gap: 0px !important;
+    padding-left: 0;
+  } */
 
 
   .clearP {

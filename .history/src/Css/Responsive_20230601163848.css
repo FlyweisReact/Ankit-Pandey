@@ -129,24 +129,21 @@
     display: flex  !important;
     width: 98% !important;
     justify-content: flex-start;
+    border: 1px solid black;
     margin: auto;
   }
   .false-navbar .right{
     width: 90%;
-    display: flex;
-    gap: 5px;
-    justify-content: flex-start !important;
+    display: block;
   }
-  .false-navbar .right .dropdown{
-    width: 50% !important;
-  }
-  .false-navbar .right #dropdown-basic{
-    width: 100% !important;
-  }
-  .false-navbar .right #dropdown-basic input{
-    width: 100% !important;
-  }
+  .false-navbar
 
+  .dropdown-button-search-1{
+    width: 80px !important;
+    border: 10px solid red;
+    gap: 0px !important;
+    padding-left: 0;
+  }
 
 
   .clearP {

@@ -83,10 +83,9 @@
   cursor: pointer;
   right: 10px;
 }
-.clear2 .fa-x {
+.clear .fa-x {
   position: absolute;
   top: 10px;
   cursor: pointer;
   right: 10px;
-  color: #000;
 }

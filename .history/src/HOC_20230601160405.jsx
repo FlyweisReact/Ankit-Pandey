@@ -14,7 +14,7 @@ const HOC = (Wcomponent) => {
 
     return (
       <>
-        <div className={darkTheme ? "flex darkTheme " : "flex "}>
+        <div className={darkTheme ? "flex darkTheme" : "flex HOC"}>
             <div className={hamb ? 'd-none' : ""}>
             <Sidebar width={width}  setHamb={setHamb} setWidth={setWidth} />
             </div>

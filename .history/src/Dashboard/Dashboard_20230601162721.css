@@ -40,9 +40,7 @@
   overflow: hidden;
   max-width: 700px;
   max-height: 300px;
-  position: relative;
 }
-
 
 .clearP {
   display: flex;
@@ -56,7 +54,6 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  width: 100%;
 }
 
 .gridCont {
@@ -82,11 +79,4 @@
   top: 10px;
   cursor: pointer;
   right: 10px;
-}
-.clear2 .fa-x {
-  position: absolute;
-  top: 10px;
-  cursor: pointer;
-  right: 10px;
-  color: #000;
 }
