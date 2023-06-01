@@ -504,7 +504,7 @@ export function HistoricalModal(props) {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const { setMyState, setHistoricalData } = useContext(MyContext);
-  const [NoDataError, setNoDataError] = useState(false);
+  const [  ] = 
 
   const HistoricalData = async (e) => {
     e.preventDefault();
@@ -524,13 +524,9 @@ export function HistoricalModal(props) {
           },
         }
       );
-      if (data.emsg === "No data available") {
-        setNoDataError(true);
-      } else {
-        setHistoricalData(data);
-        setMyState(true);
-        props.onHide();
-      }
+      setHistoricalData(data);
+      setMyState(true);
+      props.onHide();
     } catch (e) {
       console.log(e);
     }
@@ -586,8 +582,6 @@ export function HistoricalModal(props) {
         </div>
 
         <Form onSubmit={HistoricalData}>
-          {NoDataError ? <Alert>No Data Available</Alert> : ""}
-
           <Form.Select
             aria-label="Default select example"
             className="mb-3"
