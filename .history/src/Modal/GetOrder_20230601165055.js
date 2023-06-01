@@ -597,7 +597,7 @@ export function HistoricalModal(props) {
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>To</Form.Label>
-            <Form.Control type="date" onChange={handleDateChange2} />
+            <Form.Control type="datetime-local" onChange={handleDateChange2} />
           </Form.Group>
 
           <div className="d-flex gap-2">

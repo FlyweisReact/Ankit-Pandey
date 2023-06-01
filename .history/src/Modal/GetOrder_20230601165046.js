@@ -557,6 +557,7 @@ export function HistoricalModal(props) {
   const convertDateToEpoch2 = (dateString) => {
     const selectedDate = new Date(dateString);
 
+    // Set the desired time to 03:30 PM
      // Set the desired time to 03:30 PM
   selectedDate.setHours(15);
   selectedDate.setMinutes(30);
@@ -593,11 +594,11 @@ export function HistoricalModal(props) {
 
           <Form.Group className="mb-3">
             <Form.Label>From</Form.Label>
-            <Form.Control type="date" onChange={handleDateChange} />
+            <Form.Control type="datetime-local" onChange={handleDateChange} />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>To</Form.Label>
-            <Form.Control type="date" onChange={handleDateChange2} />
+            <Form.Control type="datetime-local" onChange={handleDateChange2} />
           </Form.Group>
 
           <div className="d-flex gap-2">
