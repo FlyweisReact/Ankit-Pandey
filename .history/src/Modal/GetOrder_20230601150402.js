@@ -505,6 +505,7 @@ export function HistoricalModal(props) {
   const [to, setTo] = useState("");
   const { setMyState, setHistoricalData } = useContext(MyContext);
 
+
   const HistoricalData = async (e) => {
     e.preventDefault();
     try {
@@ -531,6 +532,10 @@ export function HistoricalModal(props) {
     }
   };
 
+
+
+
+
   const handleDateChange = (event) => {
     const value = event.target.value;
     convertDateToEpoch(value);
@@ -538,7 +543,7 @@ export function HistoricalModal(props) {
 
   const convertDateToEpoch = (dateString) => {
     const selectedDate = new Date(dateString);
-    const epoch = selectedDate.getTime() ;
+    const epoch = selectedDate.getTime() / 1000;
     setFrom(epoch.toString());
   };
 
@@ -549,9 +554,10 @@ export function HistoricalModal(props) {
 
   const convertDateToEpoch2 = (dateString) => {
     const selectedDate = new Date(dateString);
-    const epoch = selectedDate.getTime() ;
+    const epoch = selectedDate.getTime() / 1000;
     setTo(epoch.toString());
   };
+
 
   return (
     <Modal
@@ -566,6 +572,9 @@ export function HistoricalModal(props) {
           <i class="fa-solid fa-x" onClick={() => props.onHide()}></i>
         </div>
 
+      
+  
+
         <Form onSubmit={HistoricalData}>
           <Form.Select
             aria-label="Default select example"
@@ -579,11 +588,18 @@ export function HistoricalModal(props) {
 
           <Form.Group className="mb-3">
             <Form.Label>From</Form.Label>
-            <Form.Control type="datetime-local" onChange={handleDateChange} />
+            <Form.Control
+              type="datetime-local"
+         onChange={handleDateChange}
+           
+            />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>To</Form.Label>
-            <Form.Control type="datetime-local" onChange={handleDateChange2} />
+            <Form.Control
+              type="datetime-local"
+              onChange={handleDateChange2}
+            />
           </Form.Group>
 
           <div className="d-flex gap-2">
@@ -698,31 +714,8 @@ export function PlaceOrderModal(props) {
               </Form.Group>
 
               <div>
-                <p style={{ margin: "0" }}>Exchange</p>
-                <p
-                  style={{
-                    border: "1px solid #ced4da",
-                    padding: "10px",
-                    borderRadius: "4px",
-                  }}
-                >
-                  {" "}
-                  {exch}{" "}
-                </p>
-              </div>
-
-              <div>
-                <p style={{ margin: "0" }}>Symbol</p>
-                <p
-                  style={{
-                    border: "1px solid #ced4da",
-                    padding: "10px",
-                    borderRadius: "4px",
-                  }}
-                >
-                  {" "}
-                  {Symbol}{" "}
-                </p>
+                <p>Exchange</p>
+                <p> {ex} </p>
               </div>
 
               <Form.Group className="mb-3">

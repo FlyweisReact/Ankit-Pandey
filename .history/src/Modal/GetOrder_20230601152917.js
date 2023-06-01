@@ -549,7 +549,7 @@ export function HistoricalModal(props) {
 
   const convertDateToEpoch2 = (dateString) => {
     const selectedDate = new Date(dateString);
-    const epoch = selectedDate.getTime() ;
+    const epoch = selectedDate.getTime() / 1000;
     setTo(epoch.toString());
   };
 

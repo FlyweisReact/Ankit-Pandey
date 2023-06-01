@@ -538,7 +538,7 @@ export function HistoricalModal(props) {
 
   const convertDateToEpoch = (dateString) => {
     const selectedDate = new Date(dateString);
-    const epoch = selectedDate.getTime() ;
+    const epoch = selectedDate.getTime() / 1000;
     setFrom(epoch.toString());
   };
 
@@ -549,7 +549,7 @@ export function HistoricalModal(props) {
 
   const convertDateToEpoch2 = (dateString) => {
     const selectedDate = new Date(dateString);
-    const epoch = selectedDate.getTime() ;
+    const epoch = selectedDate.getTime() / 1000;
     setTo(epoch.toString());
   };
 
@@ -712,7 +712,7 @@ export function PlaceOrderModal(props) {
               </div>
 
               <div>
-                <p style={{ margin: "0" }}>Symbol</p>
+                <p style={{ margin: "0" }}>Exchange</p>
                 <p
                   style={{
                     border: "1px solid #ced4da",
@@ -721,7 +721,7 @@ export function PlaceOrderModal(props) {
                   }}
                 >
                   {" "}
-                  {Symbol}{" "}
+                  {exch}{" "}
                 </p>
               </div>
 
