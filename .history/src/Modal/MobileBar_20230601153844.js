@@ -7,12 +7,12 @@ import { BsCashCoin } from "react-icons/bs";
 import { AiOutlineLogin } from "react-icons/ai";
 import axios from "axios";
 import { MyContext } from "../Homepage/MyContext";
-import { OrderModal, PortfoliModal, FundsModal, LoginModal } from "./GetOrder";
+import { OrderModal, PortfoliModal, FundsModal , LoginModal } from "./GetOrder";
 import { HistoricalModal, PlaceOrderModal } from "./GetOrder";
-import { UserProfileModal } from "./GetOrder";
+
+
 
 export function MobileBar() {
-  const [userProfile, setUserProfile] = useState(false);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -25,9 +25,9 @@ export function MobileBar() {
   const [fundModalOpen, setFundModalOpen] = useState(false);
   const [openModal2, setOpenModal2] = useState(false);
   const [cashback, setCashBack] = useState("");
-  const UserId = localStorage.getItem("userId");
-  const [loginShow, setLoginShow] = useState(false);
-  const [showss, setShowss] = useState(false);
+  const UserId = localStorage.getItem("userId")
+  const [ loginShow , setLoginShow ] = useState(false)
+  const [ showss , setShowss] = useState(false)
 
   function LogOut() {
     localStorage.clear();
@@ -48,32 +48,25 @@ export function MobileBar() {
     fetchCash();
   }, [fetchCash]);
 
+
   return (
     <>
-      <LoginModal show={loginShow} onHide={() => setLoginShow(false)} />
+    <LoginModal show={loginShow} onHide={() => setLoginShow(false)} />
       <HistoricalModal show={openModal2} onHide={() => setOpenModal2(false)} />
       <PlaceOrderModal show={modalShow} onHide={() => setModalShow(false)} />
-      <UserProfileModal
-        show={userProfile}
-        onHide={() => setUserProfile(false)}
-      />
 
-      <i
-        className="fa-solid fa-bars"
-        onClick={handleShow}
-        style={{ color: "black", cursor: "pointer" }}
-      ></i>
+      <i className="fa-solid fa-bars" onClick={handleShow} style={{color : 'black'}}></i>
       <Offcanvas show={show} onHide={handleClose}>
         <i
           className="fa-solid fa-x"
           style={{
             color: "black",
             fontSize: "1.4rem",
-
+       
             position: "absolute",
             right: "10px",
             top: "10px",
-            cursor: "pointer",
+            cursor : 'pointer'
           }}
           onClick={() => handleClose()}
         ></i>
@@ -120,17 +113,6 @@ export function MobileBar() {
                 Profile
               </p>
 
-              {SessionId ? (
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-                  alt=""
-                  className="profileImage"
-                  onClick={() => setUserProfile(true)}
-                />
-              ) : (
-                ""
-              )}
-
               <div>
                 {" "}
                 <div className="sideItem" onClick={() => setPrice(!price)}>
@@ -153,25 +135,30 @@ export function MobileBar() {
                 ) : (
                   ""
                 )}
+
+
                 <div className="sideItem" onClick={() => setShowss(!showss)}>
-                  <BsCashCoin style={{ width: " 20px", height: "20px" }} />{" "}
-                  Cashback
-                </div>
-                {showss ? (
-                  <span
-                    style={{
-                      marginLeft: "60%",
-                      fontSize: "13px",
-                      fontWeight: "600",
-                      cursor: "pointer",
-                    }}
-                  >
-                    {" "}
-                    (Rs {cashback}){" "}
-                  </span>
-                ) : (
-                  ""
-                )}
+                <BsCashCoin style={{ width: " 20px", height: "20px" }}  />{" "}
+                Cashback 
+               
+              </div>
+              {showss ? (
+                <span
+                  style={{
+                    marginLeft: "60%",
+                    fontSize: "13px",
+                    fontWeight: "600",
+                    cursor: "pointer",
+                  }}
+                >
+                  {" "}
+                  (Rs {cashback}){" "}
+                </span>
+              ) : (
+                ""
+              )}
+
+
                 <div
                   className="sideItem"
                   onClick={() => {
@@ -221,26 +208,22 @@ export function MobileBar() {
                   HOLDING
                 </div>
                 {SessionId ? (
-                  <div className="sideItem" onClick={() => LogOut()}>
-                    <AiOutlineLogin
-                      style={{ width: " 20px", height: "20px" }}
-                    />{" "}
-                    Logout
-                  </div>
+                  
+                  <img
+                src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                alt=""
+                className="profileImage"
+                onClick={() => setUserProfile(true)}
+              />
                 ) : (
                   ""
                 )}
-                {SessionId ? (
-                  ""
-                ) : (
-                  <button
-                    className="loginbtn"
-                    onClick={() => setLoginShow(true)}
-                  >
-                    Login
-                  </button>
-                )}
+
+                <button className="loginbtn"  onClick={() => setLoginShow(true)}>
+                Login
+              </button>
               </div>
+
             </div>
           </div>
         </Offcanvas.Body>

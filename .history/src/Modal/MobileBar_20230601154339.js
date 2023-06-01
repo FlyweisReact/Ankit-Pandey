@@ -120,17 +120,6 @@ export function MobileBar() {
                 Profile
               </p>
 
-              {SessionId ? (
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-                  alt=""
-                  className="profileImage"
-                  onClick={() => setUserProfile(true)}
-                />
-              ) : (
-                ""
-              )}
-
               <div>
                 {" "}
                 <div className="sideItem" onClick={() => setPrice(!price)}>

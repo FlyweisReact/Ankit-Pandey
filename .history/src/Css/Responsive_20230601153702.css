@@ -78,19 +78,13 @@
     margin-top: 20px;
   }
   .dropdown-button-search-1{
-    width: 120px !important;
+    width: 200px !important;
     gap: 0px !important;
-    padding-left: 0;
   }
 
-   .false-navbar .profileImage{
-    display: none;
+  .false-navbar .right {
+    display: block;
   }
-
-  .dropdown-button-search-1 input::placeholder{
-    text-align: left;
-  }
-
 
 
 }

@@ -48,6 +48,7 @@ export function MobileBar() {
     fetchCash();
   }, [fetchCash]);
 
+
   return (
     <>
       <LoginModal show={loginShow} onHide={() => setLoginShow(false)} />
@@ -119,17 +120,6 @@ export function MobileBar() {
               >
                 Profile
               </p>
-
-              {SessionId ? (
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-                  alt=""
-                  className="profileImage"
-                  onClick={() => setUserProfile(true)}
-                />
-              ) : (
-                ""
-              )}
 
               <div>
                 {" "}
@@ -228,18 +218,20 @@ export function MobileBar() {
                     Logout
                   </div>
                 ) : (
-                  ""
+                 ""
                 )}
-                {SessionId ? (
-                  ""
-                ) : (
-                  <button
-                    className="loginbtn"
-                    onClick={() => setLoginShow(true)}
-                  >
-                    Login
-                  </button>
-                )}
+
+                {
+                  SessionId ?   <img
+                src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                alt=""
+                className="profileImage"
+                onClick={() => setUserProfile(true)}
+              /> :    <button className="loginbtn" onClick={() => setLoginShow(true)}>
+                  Login
+                </button>
+                }
+             
               </div>
             </div>
           </div>

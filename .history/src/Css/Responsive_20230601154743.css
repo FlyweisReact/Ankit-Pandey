@@ -87,9 +87,7 @@
     display: none;
   }
 
-  .dropdown-button-search-1 input::placeholder{
-    text-align: left;
-  }
+  .dropdown-button-search-1 input::
 
 
 

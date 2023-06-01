@@ -88,6 +88,7 @@
   }
 
   .dropdown-button-search-1 input::placeholder{
+    padding-left: 0 !important;
     text-align: left;
   }
 
