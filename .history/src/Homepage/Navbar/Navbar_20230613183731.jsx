@@ -45,6 +45,7 @@ const Navbar = ({ setHamb, hamb }) => {
   i.Symbol?.toLowerCase().includes(searchConst?.toLowerCase())
 );
 
+console.log(FilterGraph)
 
   return (
     <>
@@ -157,7 +158,7 @@ const Navbar = ({ setHamb, hamb }) => {
                           localStorage.setItem("token", i.Token);
                           localStorage.setItem(
                             "Trading_Symbol",
-                            i.TradingSymbol
+                            i.Trading_Symbol
                           );
                           window.location.reload();
                           setSearchConst(i.name);
@@ -172,7 +173,7 @@ const Navbar = ({ setHamb, hamb }) => {
                           localStorage.setItem("token", i.Token);
                           localStorage.setItem(
                             "Trading_Symbol",
-                            i.TradingSymbol
+                            i.Trading_Symbol
                           );
                           window.location.reload();
                           setSearchConst(i.name);
