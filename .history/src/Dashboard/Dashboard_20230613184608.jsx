@@ -24,8 +24,6 @@ const Dashboard = () => {
   const Symbol = localStorage.getItem("Symbol");
   const [modalShow, setModalShow] = useState(false);
 
-  const Total = Exchange + ":" + Symbol
-
   useEffect(() => {
     onLoadScriptRef.current = createWidget;
 
@@ -57,7 +55,7 @@ const Dashboard = () => {
           width: "100%",
           height: "100%",
           autosize: true,
-          symbol: Total  ,
+          symbol: {Symbol + "NSE" },
           interval: "D",
           timezone: "exchange",
           theme: "dark",
@@ -79,7 +77,7 @@ const Dashboard = () => {
         });
       }
     }
-  }, [Total]);
+  }, [Exchange, Symbol]);
 
   return (
     <>

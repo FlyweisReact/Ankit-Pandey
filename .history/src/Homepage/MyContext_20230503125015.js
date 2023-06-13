@@ -5,8 +5,8 @@ import { createContext, useState } from "react";
 export const MyContext = createContext();
 
 export const MyContextProvider = ({ children }) => {
-  const [myState, setMyState] = useState(false);
-  const [secondTab, setSecondState] = useState(false);
+  const [myState, setMyState] = useState(true);
+  const [secondTab, setSecondState] = useState(true);
   const [darkTheme, setDarkTheme] = useState(false);
   const [historicalData, setHistoricalData] = useState([]);
 

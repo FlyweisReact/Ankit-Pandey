@@ -103,7 +103,7 @@ const Navbar = ({ setHamb, hamb }) => {
 
               <Dropdown.Menu>
                 {filterAppendix?.length === 0
-                  ? Appendix?.map((i) => (
+                  ?   ?.map((i) => (
                       <Dropdown.Item
                         onClick={() => {
                           localStorage.setItem("Exchange", i.name);

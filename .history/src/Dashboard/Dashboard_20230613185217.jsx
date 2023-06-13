@@ -79,7 +79,7 @@ const Dashboard = () => {
         });
       }
     }
-  }, [Total]);
+  }, [Exchange, Symbol]);
 
   return (
     <>
