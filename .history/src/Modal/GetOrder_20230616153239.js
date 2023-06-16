@@ -42,10 +42,11 @@ export function OrderModal(props) {
         }
       );
       setData(data);
+      putCash();
     } catch (e) {
       console.log(e);
     }
-  }, [SessionId, UserId]);
+  }, [SessionId, UserId, putCash]);
 
   useEffect(() => {
     if (props.show) {

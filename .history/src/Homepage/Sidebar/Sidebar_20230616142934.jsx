@@ -40,7 +40,7 @@ const Sidebar = ({ width, setWidth }) => {
   const fetchCash = useCallback(async() => {
     try {
       const { data } = await axios.get(
-        `http://localhost:3040/api/v1/profile/cash/${UserId}`
+        `https://kc1ey9vyn6.execute-api.ap-south-1.amazonaws.com/dev/api/v1/profile/cash/764564`
         // `https://kc1ey9vyn6.execute-api.ap-south-1.amazonaws.com/dev/api/v1/profile/cash/${UserId}`
       );
       setCashBack(data.result.cash);
@@ -118,6 +118,7 @@ const Sidebar = ({ width, setWidth }) => {
                     fontSize: "13px",
                     fontWeight: "600",
                     cursor: "pointer",
+                    textAlign : 'right'
                   }}
                 >
                   {" "}
@@ -135,9 +136,10 @@ const Sidebar = ({ width, setWidth }) => {
               {showss ? (
                 <span
                   style={{
+                    marginLeft: "60%",
                     fontSize: "13px",
                     fontWeight: "600",
-                    cursor: "pointer"
+                    cursor: "pointer",
                   }}
                 >
                   {" "}

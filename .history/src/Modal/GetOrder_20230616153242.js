@@ -42,6 +42,7 @@ export function OrderModal(props) {
         }
       );
       setData(data);
+      putCash();
     } catch (e) {
       console.log(e);
     }
