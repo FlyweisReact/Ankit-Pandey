@@ -35,6 +35,7 @@ const Dashboard = () => {
   const [Total, setTotal] = useState(symbol);
 
 
+
   const CheckingValue = useCallback(() => {
     if (Exchange === "NSE") {
       setTotal(symbol);
@@ -102,7 +103,6 @@ const Dashboard = () => {
     CheckingValue();
   }, [CheckingValue]);
 
-
   return (
     <>
       <HistoricalModal show={modalShow} onHide={() => setModalShow(false)} />
@@ -110,12 +110,12 @@ const Dashboard = () => {
       <div className="homeS">
 
       {
-        Exchange && symbol ?   <div className="tradingview-widget-container">
+        Exchange 
+      }
+        <div className="tradingview-widget-container">
           <div id="technical-analysis-chart-demo" />
           <div className="tradingview-widget-copyright"></div>
-        </div> : ""
-      }
-       
+        </div>
 
         <div className="gridCont">
           {myState ? (

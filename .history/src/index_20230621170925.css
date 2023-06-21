@@ -121,17 +121,17 @@ code {
 
 /* Dark Theme */
 .darkTheme {
-  background-color: #2c3236 !important ;
+  background-color: #000 !important ;
 }
 .darkTheme .false-sidebar {
-  background-color: #2c3236;
+  background-color: black;
 }
 .darkTheme .false-logo {
   color: #fff;
 }
 
 .darkNavbar .false-navbar {
-  background-color: #2c3236;
+  background-color: ##282727;
 }
 
 .headingClose {

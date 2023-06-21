@@ -34,6 +34,7 @@ const Dashboard = () => {
   const cardRef = useRef(null);
   const [Total, setTotal] = useState(symbol);
 
+console.log(symbol)
 
   const CheckingValue = useCallback(() => {
     if (Exchange === "NSE") {

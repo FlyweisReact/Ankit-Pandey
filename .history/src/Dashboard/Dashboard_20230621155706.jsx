@@ -35,6 +35,7 @@ const Dashboard = () => {
   const [Total, setTotal] = useState(symbol);
 
 
+
   const CheckingValue = useCallback(() => {
     if (Exchange === "NSE") {
       setTotal(symbol);
@@ -110,7 +111,7 @@ const Dashboard = () => {
       <div className="homeS">
 
       {
-        Exchange && symbol ?   <div className="tradingview-widget-container">
+        Exchange && Symbol ?   <div className="tradingview-widget-container">
           <div id="technical-analysis-chart-demo" />
           <div className="tradingview-widget-copyright"></div>
         </div> : ""

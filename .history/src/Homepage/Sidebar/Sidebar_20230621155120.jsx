@@ -191,9 +191,7 @@ const Sidebar = ({ width, setWidth }) => {
                 </div>
               </>
             ) : (
-              <p style={{ textAlign: "left" }}>
-                Please Login To see Profile Features
-              </p>
+              <p style={{textAlign : 'center'}}>Please Login To see Profile Features</p>
             )}
 
             <div>

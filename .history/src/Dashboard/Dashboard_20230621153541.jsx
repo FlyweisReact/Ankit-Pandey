@@ -34,6 +34,7 @@ const Dashboard = () => {
   const cardRef = useRef(null);
   const [Total, setTotal] = useState(symbol);
 
+  const ChartThemeSelector = darkTheme ? 'dark' : 'light'
 
   const CheckingValue = useCallback(() => {
     if (Exchange === "NSE") {
@@ -77,7 +78,7 @@ const Dashboard = () => {
           symbol: Total,
           interval: "D",
           timezone: "exchange",
-          theme: darkTheme ? 'dark' : 'light',
+          theme: "dark",
           style: "1",
           toolbar_bg: "#f1f3f6",
           withdateranges: true,
@@ -96,26 +97,21 @@ const Dashboard = () => {
         });
       }
     }
-  }, [Total , darkTheme]);
+  }, [Total]);
 
   useEffect(() => {
     CheckingValue();
   }, [CheckingValue]);
-
 
   return (
     <>
       <HistoricalModal show={modalShow} onHide={() => setModalShow(false)} />
 
       <div className="homeS">
-
-      {
-        Exchange && symbol ?   <div className="tradingview-widget-container">
+        <div className="tradingview-widget-container">
           <div id="technical-analysis-chart-demo" />
           <div className="tradingview-widget-copyright"></div>
-        </div> : ""
-      }
-       
+        </div>
 
         <div className="gridCont">
           {myState ? (
