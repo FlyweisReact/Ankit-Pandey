@@ -19,6 +19,7 @@
     "react-icons": "^4.3.1",
     "react-loader-spinner": "^5.1.5",
     "react-moment": "^1.1.2",
+    "react-notifications": "^1.7.4",
     "react-resizable": "^3.0.5",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.0.4",

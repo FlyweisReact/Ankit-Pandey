@@ -15,7 +15,7 @@ import {
   FundsModal,
   HistoricalModal,
   PlaceOrderModal,
-  CashbackModal,
+  CashbackModal
 } from "../../Modal/GetOrder";
 
 const Sidebar = ({ width, setWidth }) => {
@@ -28,7 +28,7 @@ const Sidebar = ({ width, setWidth }) => {
   const [modalOpen, setOrderOpen] = useState(false);
   const [openPModal, setOpenPModal] = useState(false);
   const [fundModalOpen, setFundModalOpen] = useState(false);
-  const [CashModalOpen, setCashModalOpen] = useState(false);
+  const [ CashModalOpen , setCashModalOpen ] = useState(false)
   const [openModal2, setOpenModal2] = useState(false);
   const [cashback, setCashBack] = useState("");
   const UserId = localStorage.getItem("userId");
@@ -41,7 +41,7 @@ const Sidebar = ({ width, setWidth }) => {
   const fetchCash = useCallback(async () => {
     try {
       const { data } = await axios.get(
-        `https://ankit-pandey-backend.vercel.app/api/v1/profile/cash/${UserId}`
+        `http://localhost:3040/api/v1/profile/cash/${UserId}`
       );
       setCashBack(data.result.cash);
     } catch (e) {
@@ -60,10 +60,7 @@ const Sidebar = ({ width, setWidth }) => {
       <OrderModal show={modalOpen} onHide={() => setOrderOpen()} />
       <PortfoliModal show={openPModal} onHide={() => setOpenPModal(false)} />
       <FundsModal show={fundModalOpen} onHide={() => setFundModalOpen(false)} />
-      <CashbackModal
-        show={CashModalOpen}
-        onHide={() => setCashModalOpen(false)}
-      />
+      <CashbackModal show={CashModalOpen} onHide={() => setCashModalOpen(false)} />
 
       <div className={darkTheme ? "darkTheme" : ""}>
         <div
@@ -126,13 +123,11 @@ const Sidebar = ({ width, setWidth }) => {
                   ""
                 )}
 
-                <div
-                  className="sideItem"
-                  onClick={() => setCashModalOpen(true)}
-                >
+                <div className="sideItem" onClick={() => setCashModalOpen(true)}>
                   <BsCashCoin style={{ width: " 20px", height: "20px" }} />{" "}
                   Cashback
                 </div>
+            
 
                 <div
                   className="sideItem"

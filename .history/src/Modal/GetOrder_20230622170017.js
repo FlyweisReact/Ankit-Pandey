@@ -15,7 +15,7 @@ export function CashbackModal(props) {
   const fetchOrderData = useCallback(async () => {
     try {
       const { data } = await axios.get(
-        `https://ankit-pandey-backend.vercel.app/api/v1/order/getAllOrders/${UserId}` 
+        `http://localhost:3040/api/v1/order/getAllOrders/${UserId}` 
       );
       setData(data.data);
     } catch (e) {
@@ -112,7 +112,7 @@ export function OrderModal(props) {
     async (ReposonseData) => {
       try {
         const { response } = await axios.post(
-          `https://ankit-pandey-backend.vercel.app/api/v1/order/createOrders/${UserId}`,
+          `http://localhost:3040/api/v1/order/createOrders/${UserId}`,
           {
             data: ReposonseData,
           }
