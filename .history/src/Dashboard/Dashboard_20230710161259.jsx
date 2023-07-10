@@ -165,7 +165,7 @@ const Dashboard = () => {
                 onClick={() => {
                   localStorage.setItem("Exchange", "NSE");
                   localStorage.setItem("Symbol", "INDIA VIX");
-                  localStorage.setItem("token", "26017");
+                  localStorage.setItem("token", "26000");
                   setExchange("NSE")
                   setSymbol("INDIA VIX")
                 }}

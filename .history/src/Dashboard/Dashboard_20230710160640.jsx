@@ -128,26 +128,10 @@ const Dashboard = () => {
               >
                 <p>NIFTY 50</p>
               </div>
-              <div
-                onClick={() => {
-                  localStorage.setItem("Exchange", "NSE");
-                  localStorage.setItem("Symbol", "NIFTY BANK");
-                  localStorage.setItem("token", "26009");
-                  setExchange("NSE")
-                  setSymbol("NIFTY BANK")
-                }}
-              >
+              <div>
                 <p>NIFTY BANK</p>
               </div>
-              <div
-                onClick={() => {
-                  localStorage.setItem("Exchange", "NSE");
-                  localStorage.setItem("Symbol", "NIFTY FIN SERVICE");
-                  localStorage.setItem("token", "26037");
-                  setExchange("NSE")
-                  setSymbol("NIFTY FIN SERVICE")
-                }}
-              >
+              <div>
                 <p>NIFTY FIN SERVICE</p>
               </div>
               <div
@@ -156,20 +140,12 @@ const Dashboard = () => {
                   localStorage.setItem("Symbol", "SENSEX");
                   localStorage.setItem("token", "1");
                   setExchange("BSE")
-                  setSymbol("SENSEX")
+                  setSymbol("SENSEX 50")
                 }}
               >
                 <p>SENSEX</p>
               </div>
-              <div
-                onClick={() => {
-                  localStorage.setItem("Exchange", "NSE");
-                  localStorage.setItem("Symbol", "INDIA VIX");
-                  localStorage.setItem("token", "26017");
-                  setExchange("NSE")
-                  setSymbol("INDIA VIX")
-                }}
-              >
+              <div>
                 <p>INDIA VIX</p>
               </div>
             </div>

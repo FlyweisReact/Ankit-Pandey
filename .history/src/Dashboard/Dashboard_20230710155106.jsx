@@ -27,14 +27,13 @@ const Dashboard = () => {
     Exchange,
     setSecondState,
     symbol,
-    darkTheme,
-    setExchange , 
-    setSymbol
+    darkTheme
   } = useContext(MyContext);
   const onLoadScriptRef = useRef();
   const [modalShow, setModalShow] = useState(false);
   const cardRef = useRef(null);
   const [Total, setTotal] = useState(symbol);
+
 
   const CheckingValue = useCallback(() => {
     if (Exchange === "NSE") {
@@ -78,7 +77,7 @@ const Dashboard = () => {
           symbol: Total,
           interval: "D",
           timezone: "exchange",
-          theme: darkTheme ? "dark" : "light",
+          theme: darkTheme ? 'dark' : 'light',
           style: "1",
           toolbar_bg: "#f1f3f6",
           withdateranges: true,
@@ -97,84 +96,26 @@ const Dashboard = () => {
         });
       }
     }
-  }, [Total, darkTheme]);
+  }, [Total , darkTheme]);
 
   useEffect(() => {
     CheckingValue();
   }, [CheckingValue]);
+
 
   return (
     <>
       <HistoricalModal show={modalShow} onHide={() => setModalShow(false)} />
 
       <div className="homeS">
-        {Exchange && symbol ? (
-          <div className="tradingview-widget-container">
-            <div id="technical-analysis-chart-demo" />
-            <div className="tradingview-widget-copyright"></div>
-          </div>
-        ) : (
-          <div className="Content_Box">
-            <p className="head">Market Today</p>
-            <div className="div_Box">
-              <div
-                onClick={() => {
-                  localStorage.setItem("Exchange", "NSE");
-                  localStorage.setItem("Symbol", "NIFTY 50");
-                  localStorage.setItem("token", "26000");
-                  setExchange("NSE")
-                  setSymbol("NIFTY 50")
-                }}
-              >
-                <p>NIFTY 50</p>
-              </div>
-              <div
-                onClick={() => {
-                  localStorage.setItem("Exchange", "NSE");
-                  localStorage.setItem("Symbol", "NIFTY BANK");
-                  localStorage.setItem("token", "26009");
-                  setExchange("NSE")
-                  setSymbol("NIFTY BANK")
-                }}
-              >
-                <p>NIFTY BANK</p>
-              </div>
-              <div
-                onClick={() => {
-                  localStorage.setItem("Exchange", "NSE");
-                  localStorage.setItem("Symbol", "NIFTY FIN SERVICE");
-                  localStorage.setItem("token", "26037");
-                  setExchange("NSE")
-                  setSymbol("NIFTY FIN SERVICE")
-                }}
-              >
-                <p>NIFTY FIN SERVICE</p>
-              </div>
-              <div
-                  onClick={() => {
-                  localStorage.setItem("Exchange", "BSE");
-                  localStorage.setItem("Symbol", "SENSEX");
-                  localStorage.setItem("token", "1");
-                  setExchange("BSE")
-                  setSymbol("SENSEX")
-                }}
-              >
-                <p>SENSEX</p>
-              </div>
-              <div
-                onClick={() => {
-                  localStorage.setItem("Exchange", "NSE");
-                  localStorage.setItem("Symbol", "INDIA VIX");
-                  localStorage.setItem("token", "26017");
-                  setExchange("NSE")
-                  setSymbol("INDIA VIX")
-                }}
-              >
-                <p>INDIA VIX</p>
-              </div>
-            </div>
-          </div>
-        )}
+
+      {
+        Exchange && symbol ?   <div className="tradingview-widget-container">
+          <div id="technical-analysis-chart-demo" />
+          <div className="tradingview-widget-copyright"></div>
+        </div> : <div></div
+      }
+       
 
         <div className="gridCont">
           {myState ? (
@@ -293,6 +234,9 @@ const Dashboard = () => {
           ) : (
             ""
           )}
+
+
+
         </div>
       </div>
     </>

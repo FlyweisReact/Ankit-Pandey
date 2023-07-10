@@ -666,7 +666,7 @@ export function HistoricalModal(props) {
   
     try {
       const { data } = await axios.post(
-        "https://ankit-pandey-backend.vercel.app/api/v1/profile/getHistoricalbeforeLogin",
+        "https://ankit-pandey-backend-1a9mdswu3-node-4.vercel.app/api/v1/profile/getHistoricalbeforeLogin",
         {
           token,
           resolution,
@@ -735,7 +735,7 @@ export function HistoricalModal(props) {
           <i class="fa-solid fa-x" onClick={() => props.onHide()}></i>
         </div>
 
-        <Form onSubmit={postHandler}>
+        <Form onSubmit={() => postHandler()}>
           {NoDataError ? <Alert>No Data Available</Alert> : ""}
 
           <Form.Select

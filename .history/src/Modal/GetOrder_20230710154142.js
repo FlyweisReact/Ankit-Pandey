@@ -675,7 +675,7 @@ export function HistoricalModal(props) {
           exchange,
         }
       );
-      setHistoricalData(data);
+      setHistoricalData(data.result);
       setMyState(true);
       props.onHide();
     } catch (e) {

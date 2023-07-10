@@ -632,7 +632,8 @@ export function HistoricalModal(props) {
     }
   };
 
-  const HistoricalData = async () => {
+  const HistoricalData = async (e) => {
+    e.preventDefault();
     try {
       const { data } = await axios.post(
         "https://ant.aliceblueonline.com/rest/AliceBlueAPIService/api/chart/history",
@@ -662,35 +663,37 @@ export function HistoricalModal(props) {
     }
   };
 
-  const HistoricalDataBeforeLogin = async () => {
-  
+  const HistoricalDataBeforeLogin =  async (e) => {
+    e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://ankit-pandey-backend.vercel.app/api/v1/profile/getHistoricalbeforeLogin",
+        "https://ankit-pandey-backend-1a9mdswu3-node-4.vercel.app/api/v1/profile/getHistoricalbeforeLogin",
         {
           token,
           resolution,
           from,
           to,
           exchange,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${UserId} ${SessionId}`,
+          },
         }
       );
-      setHistoricalData(data);
-      setMyState(true);
-      props.onHide();
+      if (data.emsg === "No data available") {
+        setNoDataError(true);
+      } else {
+        setHistoricalData(data);
+        setMyState(true);
+        HistoricalDataHandler();
+        props.onHide();
+      }
     } catch (e) {
       console.log(e);
     }
   };
 
-  const postHandler =  (e) => {
-    e.preventDefault();
-    if(SessionId) {
-      HistoricalData()
-    }else{
-      HistoricalDataBeforeLogin()
-    }
-  }
 
   const handleDateChange = (event) => {
     const value = event.target.value;
@@ -735,7 +738,7 @@ export function HistoricalModal(props) {
           <i class="fa-solid fa-x" onClick={() => props.onHide()}></i>
         </div>
 
-        <Form onSubmit={postHandler}>
+        <Form onSubmit={HistoricalData}>
           {NoDataError ? <Alert>No Data Available</Alert> : ""}
 
           <Form.Select
