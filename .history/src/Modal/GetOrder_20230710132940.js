@@ -4,11 +4,9 @@ import { useState, useEffect, useCallback, useContext } from "react";
 import axios from "axios";
 import { Table, Form, Button, Alert } from "react-bootstrap";
 import { MyContext } from "../Homepage/MyContext";
-import "react-notifications/lib/notifications.css";
-import {
-  NotificationContainer,
-  NotificationManager,
-} from "react-notifications";
+import 'react-notifications/lib/notifications.css';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+
 
 export function CashbackModal(props) {
   const [data, setData] = useState([]);
@@ -17,13 +15,13 @@ export function CashbackModal(props) {
   const fetchOrderData = useCallback(async () => {
     try {
       const { data } = await axios.get(
-        `https://ankit-pandey-backend.vercel.app/api/v1/order/getAllOrders/${UserId}`
+        `https://ankit-pandey-backend.vercel.app/api/v1/order/getAllOrders/${UserId}` 
       );
       setData(data.data);
     } catch (e) {
       console.log(e);
     }
-  }, [UserId]);
+  }, [ UserId]);
 
   useEffect(() => {
     if (props.show) {
@@ -95,11 +93,14 @@ export function CashbackModal(props) {
             </Table>
           </div>
         )}
+
+      
       </Modal.Body>
       <Modal.Footer></Modal.Footer>
     </Modal>
   );
 }
+
 
 export function OrderModal(props) {
   const [data, setData] = useState([]);
@@ -612,26 +613,7 @@ export function HistoricalModal(props) {
   const defaultFrom = localStorage.getItem("Historical_Data_From");
   const defaultTo = localStorage.getItem("Historical_Data_to");
 
-  const HistoricalDataHandler = async () => {
-    console.log("Data Saved In Backend");
-    try {
-      const data = await axios.post(
-        "https://ankit-pandey-backend-1a9mdswu3-node-4.vercel.app/api/v1/profile/getHistorical",
-        {
-          token,
-          resolution,
-          from,
-          to,
-          exchange,
-          client_key: UserId,
-          session_id: SessionId,
-        }
-      );
-      console.log(data);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  const SaveData
 
   const HistoricalData = async (e) => {
     e.preventDefault();
@@ -656,7 +638,6 @@ export function HistoricalModal(props) {
       } else {
         setHistoricalData(data);
         setMyState(true);
-        HistoricalDataHandler();
         props.onHide();
       }
     } catch (e) {
@@ -819,12 +800,14 @@ export function PlaceOrderModal(props) {
           },
         }
       );
-      NotificationManager.success("Order Placed SuccessFully");
+      NotificationManager.success('Order Placed SuccessFully');
       console.log(data);
     } catch (e) {
       console.log(e);
     }
   };
+
+
 
   return (
     <Modal
@@ -834,13 +817,14 @@ export function PlaceOrderModal(props) {
       centered
     >
       <Modal.Body className="PlaceOrderModal">
-        <NotificationContainer />
-        <div className="headingClose" id="#dsd">
+      <NotificationContainer />
+        <div className="headingClose" id='#dsd'>
           <p className="headP">Place Order</p>
           <i class="fa-solid fa-x" onClick={() => props.onHide()}></i>
         </div>
 
         <Form onSubmit={postHandler}>
+         
           <Form.Group className="mb-3">
             <Form.Label>Complexty</Form.Label>
             <Form.Select
@@ -1046,7 +1030,7 @@ export function LoginModal(props) {
               required
               onChange={(e) => setUserId(e.target.value)}
               placeholder="User Id"
-              name="number"
+              name='number'
             />
           </Form.Group>
           <Form.Group className="mb-3">
@@ -1055,7 +1039,7 @@ export function LoginModal(props) {
               required
               onChange={(e) => setKey(e.target.value)}
               placeholder="Key"
-              name="key"
+              name='key'
             />
           </Form.Group>
           <Button type="submit">Submit</Button>
