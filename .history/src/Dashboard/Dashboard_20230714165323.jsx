@@ -132,6 +132,62 @@ const Dashboard = () => {
           <div className="Content_Box">
             <p className="head">Market Today</p>
             <div className="div_Box">
+              <div
+                onClick={() => {
+                  localStorage.setItem("Exchange", "NSE");
+                  localStorage.setItem("Symbol", "NIFTY 50");
+                  localStorage.setItem("token", "26000");
+                  setExchange("NSE");
+                  setSymbol("NIFTY 50");
+                }}
+              >
+                <p>NIFTY 50</p>
+              </div>
+              <div
+                onClick={() => {
+                  localStorage.setItem("Exchange", "NSE");
+                  localStorage.setItem("Symbol", "NIFTY BANK");
+                  localStorage.setItem("token", "26009");
+                  setExchange("NSE");
+                  setSymbol("NIFTY BANK");
+                }}
+              >
+                <p>NIFTY BANK</p>
+              </div>
+              <div
+                onClick={() => {
+                  localStorage.setItem("Exchange", "NSE");
+                  localStorage.setItem("Symbol", "NIFTY FIN SERVICE");
+                  localStorage.setItem("token", "26037");
+                  setExchange("NSE");
+                  setSymbol("NIFTY FIN SERVICE");
+                }}
+              >
+                <p>NIFTY FIN SERVICE</p>
+              </div>
+              <div
+                onClick={() => {
+                  localStorage.setItem("Exchange", "BSE");
+                  localStorage.setItem("Symbol", "SENSEX");
+                  localStorage.setItem("token", "1");
+                  setExchange("BSE");
+                  setSymbol("SENSEX");
+                }}
+              >
+                <p>SENSEX</p>
+              </div>
+              <div
+                onClick={() => {
+                  localStorage.setItem("Exchange", "NSE");
+                  localStorage.setItem("Symbol", "INDIA VIX");
+                  localStorage.setItem("token", "26017");
+                  setExchange("NSE");
+                  setSymbol("INDIA VIX");
+                }}
+              >
+                <p>INDIA VIX</p>
+              </div>
+
               {marketToday?.map((item, index) => (
                 <div
                   onClick={() => {
@@ -141,26 +197,8 @@ const Dashboard = () => {
                     setExchange("NSE");
                     setSymbol("INDIA VIX");
                   }}
-                  className="Item"
-                  key={index}
                 >
-                  <div>
-                    <p className="title"> {item.name} </p>
-                    <p className="price"> {item.lp} </p>
-                    <p
-                      className={`percent  ${item.pc < 0 ? "minus" : "plus"} `}
-                    >
-                      {" "}
-                      ({item.pc}%){" "}
-                    </p>
-                  </div>
-                  <i
-                    className={`${
-                      item.pc < 0
-                        ? "fa-solid fa-arrow-trend-down"
-                        : "fa-solid fa-arrow-trend-up"
-                    }`}
-                  ></i>
+                  <p>INDIA VIX</p>
                 </div>
               ))}
             </div>

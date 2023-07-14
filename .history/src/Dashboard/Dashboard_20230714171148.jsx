@@ -132,6 +132,8 @@ const Dashboard = () => {
           <div className="Content_Box">
             <p className="head">Market Today</p>
             <div className="div_Box">
+       
+
               {marketToday?.map((item, index) => (
                 <div
                   onClick={() => {
@@ -147,20 +149,10 @@ const Dashboard = () => {
                   <div>
                     <p className="title"> {item.name} </p>
                     <p className="price"> {item.lp} </p>
-                    <p
-                      className={`percent  ${item.pc < 0 ? "minus" : "plus"} `}
-                    >
-                      {" "}
-                      ({item.pc}%){" "}
-                    </p>
+                    <p className="percent plus"> ({item.pc}%) </p>
                   </div>
-                  <i
-                    className={`${
-                      item.pc < 0
-                        ? "fa-solid fa-arrow-trend-down"
-                        : "fa-solid fa-arrow-trend-up"
-                    }`}
-                  ></i>
+
+                  <i className="fa-solid fa-arrow-trend-up"></i>
                 </div>
               ))}
             </div>

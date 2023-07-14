@@ -37,6 +37,7 @@ const Dashboard = () => {
   const cardRef = useRef(null);
   const [Total, setTotal] = useState(symbol);
   const [marketToday, setMarketToday] = useState([]);
+  const [ ]
 
   const CheckingValue = useCallback(() => {
     if (Exchange === "NSE") {
@@ -118,6 +119,11 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
+
+  function CheckDecimal (number) {
+
+  }
+
   return (
     <>
       <HistoricalModal show={modalShow} onHide={() => setModalShow(false)} />
@@ -132,6 +138,8 @@ const Dashboard = () => {
           <div className="Content_Box">
             <p className="head">Market Today</p>
             <div className="div_Box">
+       
+
               {marketToday?.map((item, index) => (
                 <div
                   onClick={() => {
@@ -147,20 +155,10 @@ const Dashboard = () => {
                   <div>
                     <p className="title"> {item.name} </p>
                     <p className="price"> {item.lp} </p>
-                    <p
-                      className={`percent  ${item.pc < 0 ? "minus" : "plus"} `}
-                    >
-                      {" "}
-                      ({item.pc}%){" "}
-                    </p>
+                    <p className="percent plus"> ({item.pc}%) </p>
                   </div>
-                  <i
-                    className={`${
-                      item.pc < 0
-                        ? "fa-solid fa-arrow-trend-down"
-                        : "fa-solid fa-arrow-trend-up"
-                    }`}
-                  ></i>
+
+                  <i className="fa-solid fa-arrow-trend-up"></i>
                 </div>
               ))}
             </div>

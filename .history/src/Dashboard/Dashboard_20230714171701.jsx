@@ -157,7 +157,7 @@ const Dashboard = () => {
                   <i
                     className={`${
                       item.pc < 0
-                        ? "fa-solid fa-arrow-trend-down"
+                        ? "fa-solid fa-arrow-trend-up"
                         : "fa-solid fa-arrow-trend-up"
                     }`}
                   ></i>

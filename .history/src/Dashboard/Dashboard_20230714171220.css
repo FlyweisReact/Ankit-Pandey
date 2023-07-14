@@ -125,9 +125,6 @@
 .Content_Box .div_Box .Item .fa-arrow-trend-up {
   color: #007a00;
 }
-.Content_Box .div_Box .Item .fa-arrow-trend-down {
-  color: #cb0505;
-}
 .Content_Box .div_Box div p {
   margin: 0;
 }
@@ -143,9 +140,6 @@
 }
 .Content_Box .div_Box div .plus {
   color: #007a00;
-}
-.Content_Box .div_Box div .minus {
-  color: #cb0505;
 }
 .Content_Box .div_Box .Item:hover{
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;

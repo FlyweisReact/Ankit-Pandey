@@ -118,6 +118,7 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
+
   return (
     <>
       <HistoricalModal show={modalShow} onHide={() => setModalShow(false)} />
@@ -132,37 +133,66 @@ const Dashboard = () => {
           <div className="Content_Box">
             <p className="head">Market Today</p>
             <div className="div_Box">
-              {marketToday?.map((item, index) => (
-                <div
-                  onClick={() => {
-                    localStorage.setItem("Exchange", "NSE");
-                    localStorage.setItem("Symbol", "INDIA VIX");
-                    localStorage.setItem("token", "26017");
-                    setExchange("NSE");
-                    setSymbol("INDIA VIX");
-                  }}
-                  className="Item"
-                  key={index}
-                >
-                  <div>
-                    <p className="title"> {item.name} </p>
-                    <p className="price"> {item.lp} </p>
-                    <p
-                      className={`percent  ${item.pc < 0 ? "minus" : "plus"} `}
-                    >
-                      {" "}
-                      ({item.pc}%){" "}
-                    </p>
-                  </div>
-                  <i
-                    className={`${
-                      item.pc < 0
-                        ? "fa-solid fa-arrow-trend-down"
-                        : "fa-solid fa-arrow-trend-up"
-                    }`}
-                  ></i>
+              <div
+                onClick={() => {
+                  localStorage.setItem("Exchange", "NSE");
+                  localStorage.setItem("Symbol", "NIFTY 50");
+                  localStorage.setItem("token", "26000");
+                  setExchange("NSE");
+                  setSymbol("NIFTY 50");
+                }}
+              >
+                <p>NIFTY 50</p>
+              </div>
+              <div
+                onClick={() => {
+                  localStorage.setItem("Exchange", "NSE");
+                  localStorage.setItem("Symbol", "NIFTY BANK");
+                  localStorage.setItem("token", "26009");
+                  setExchange("NSE");
+                  setSymbol("NIFTY BANK");
+                }}
+              >
+                <p>NIFTY BANK</p>
+              </div>
+              <div
+                onClick={() => {
+                  localStorage.setItem("Exchange", "NSE");
+                  localStorage.setItem("Symbol", "NIFTY FIN SERVICE");
+                  localStorage.setItem("token", "26037");
+                  setExchange("NSE");
+                  setSymbol("NIFTY FIN SERVICE");
+                }}
+              >
+                <p>NIFTY FIN SERVICE</p>
+              </div>
+              <div
+                onClick={() => {
+                  localStorage.setItem("Exchange", "BSE");
+                  localStorage.setItem("Symbol", "SENSEX");
+                  localStorage.setItem("token", "1");
+                  setExchange("BSE");
+                  setSymbol("SENSEX");
+                }}
+              >
+                <p>SENSEX</p>
+              </div>
+              <div
+                onClick={() => {
+                  localStorage.setItem("Exchange", "NSE");
+                  localStorage.setItem("Symbol", "INDIA VIX");
+                  localStorage.setItem("token", "26017");
+                  setExchange("NSE");
+                  setSymbol("INDIA VIX");
+                }}
+              >
+                <p>INDIA VIX</p>
+              </div>
+
+              {/* {marketToday?.map((item, index) => (
+                <div key={index}>
                 </div>
-              ))}
+              ))} */}
             </div>
           </div>
         )}
@@ -290,3 +320,80 @@ const Dashboard = () => {
   );
 };
 export default HOC(Dashboard);
+
+
+{
+  "message": "ok",
+  "data": {
+      "nifty50": {
+          "lp": "19439.95",
+          "pc": "0.29",
+          "e": "NSE",
+          "tk": "26000",
+          "ExchangeData": {
+              "_id": "64af90a43edebcac21fb8b25",
+              "exchange": "NSE",
+              "token": "26000",
+              "sheet": "INDICES",
+              "Symbol": "NIFTY 50",
+              "__v": 0
+          }
+      },
+      "niftyFinService": {
+          "lp": "20045.60",
+          "pc": "0.61",
+          "e": "NSE",
+          "tk": "26037",
+          "ExchangeData": {
+              "_id": "64af90b23edebcac21fb8db8",
+              "exchange": "NSE",
+              "token": "26037",
+              "sheet": "INDICES",
+              "Symbol": "NIFTY FIN SERVICE",
+              "__v": 0
+          }
+      },
+      "niftyBank": {
+          "lp": "19439.30",
+          "pc": "0.28",
+          "e": "NSE",
+          "tk": "26009",
+          "ExchangeData": {
+              "_id": "64af90a63edebcac21fb8b9b",
+              "exchange": "NSE",
+              "token": "26009",
+              "sheet": "INDICES",
+              "Symbol": "NIFTY BANK",
+              "__v": 0
+          }
+      },
+      "sensex": {
+          "lp": "65651.78",
+          "pc": "0.39",
+          "e": "BSE",
+          "tk": "1",
+          "ExchangeData": {
+              "_id": "64af90c13edebcac21fb904a",
+              "exchange": "BSE",
+              "token": "1",
+              "sheet": "INDICES",
+              "Symbol": "SENSEX",
+              "__v": 0
+          }
+      },
+      "indiaFix": {
+          "lp": "10.81",
+          "pc": "-1.19",
+          "e": "NSE",
+          "tk": "26017",
+          "ExchangeData": {
+              "_id": "64af90a93edebcac21fb8c13",
+              "exchange": "NSE",
+              "token": "26017",
+              "sheet": "INDICES",
+              "Symbol": "INDIA VIX",
+              "__v": 0
+          }
+      }
+  }
+}

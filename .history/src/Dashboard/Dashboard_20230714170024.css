@@ -97,57 +97,18 @@
   font-weight: 600;
   font-size: 24px;
 }
-.Content_Box .div_Box {
+.Content_Box .div_Box{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 20px;
   align-items: center;
 }
-.Content_Box .div_Box .Item {
+.Content_Box .div_Box div{
   padding: 10px;
   cursor: pointer;
-  background: #f8fafc;
-  border-radius: 4px;
-  box-shadow: 0 0 3px 0 rgba(60, 72, 88, 0.15);
-  padding: 20px;
-  width: 20%;
-  text-align: left;
 }
-
-.Content_Box .div_Box .Item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: 0.5s;
-  transform: scale(1);
-}
-.Content_Box .div_Box .Item .fa-arrow-trend-up {
-  color: #007a00;
-}
-.Content_Box .div_Box .Item .fa-arrow-trend-down {
-  color: #cb0505;
-}
-.Content_Box .div_Box div p {
+.Content_Box .div_Box div p{
   margin: 0;
-}
-.Content_Box .div_Box div .title {
   font-weight: 600;
-  text-transform: capitalize;
-}
-.Content_Box .div_Box div .price {
-  font-weight: 900;
-}
-.Content_Box .div_Box div .percent {
-  font-weight: 500;
-}
-.Content_Box .div_Box div .plus {
-  color: #007a00;
-}
-.Content_Box .div_Box div .minus {
-  color: #cb0505;
-}
-.Content_Box .div_Box .Item:hover{
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  transform: scale(1.1);
 }

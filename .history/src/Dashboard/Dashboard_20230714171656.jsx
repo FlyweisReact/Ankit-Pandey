@@ -154,13 +154,7 @@ const Dashboard = () => {
                       ({item.pc}%){" "}
                     </p>
                   </div>
-                  <i
-                    className={`${
-                      item.pc < 0
-                        ? "fa-solid fa-arrow-trend-down"
-                        : "fa-solid fa-arrow-trend-up"
-                    }`}
-                  ></i>
+                  <i className={`${item.pc < 0 ? "" : "fa-solid fa-arrow-trend-up"  }`}></i>
                 </div>
               ))}
             </div>

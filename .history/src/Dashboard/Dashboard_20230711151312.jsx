@@ -16,7 +16,6 @@ import { Table } from "react-bootstrap";
 import { MyContext } from "../Homepage/MyContext";
 import { HistoricalModal } from "../Modal/GetOrder";
 import Draggable from "react-draggable";
-import { GetDashboardData } from "../Api/Api";
 
 let tvScriptLoadingPromise;
 const Dashboard = () => {
@@ -29,14 +28,13 @@ const Dashboard = () => {
     setSecondState,
     symbol,
     darkTheme,
-    setExchange,
-    setSymbol,
+    setExchange , 
+    setSymbol
   } = useContext(MyContext);
   const onLoadScriptRef = useRef();
   const [modalShow, setModalShow] = useState(false);
   const cardRef = useRef(null);
   const [Total, setTotal] = useState(symbol);
-  const [marketToday, setMarketToday] = useState([]);
 
   const CheckingValue = useCallback(() => {
     if (Exchange === "NSE") {
@@ -66,57 +64,12 @@ const Dashboard = () => {
 
     return () => (onLoadScriptRef.current = null);
 
-    function createWidget() {
-      if (
-        document.getElementById("technical-analysis-chart-demo") &&
-        "TradingView" in window
-      ) {
-        new window.TradingView.widget({
-          container_id: "technical-analysis-chart-demo",
-          width: "100%",
-          height: "100%",
-          autosize: true,
-          symbol: Total,
-          interval: "D",
-          timezone: "exchange",
-          theme: darkTheme ? "dark" : "light",
-          style: "1",
-          toolbar_bg: "#f1f3f6",
-          withdateranges: true,
-          hide_side_toolbar: false,
-          allow_symbol_change: true,
-          save_image: false,
-          studies: [
-            "ROC@tv-basicstudies",
-            "StochasticRSI@tv-basicstudies",
-            "MASimple@tv-basicstudies",
-          ],
-          show_popup_button: true,
-          popup_width: "1000",
-          popup_height: "650",
-          locale: "in",
-        });
-      }
-    }
+    function }{}
   }, [Total, darkTheme]);
 
   useEffect(() => {
     CheckingValue();
   }, [CheckingValue]);
-
-  // Get Dashboard Data ( Nifty 50 , Nifty Bank etc...)
-  const fetchData = async () => {
-    try {
-      const response = await GetDashboardData();
-      setMarketToday(response.data.data);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   return (
     <>
@@ -132,37 +85,61 @@ const Dashboard = () => {
           <div className="Content_Box">
             <p className="head">Market Today</p>
             <div className="div_Box">
-              {marketToday?.map((item, index) => (
-                <div
+              <div
+                onClick={() => {
+                  localStorage.setItem("Exchange", "NSE");
+                  localStorage.setItem("Symbol", "NIFTY 50");
+                  localStorage.setItem("token", "26000");
+                  setExchange("NSE")
+                  setSymbol("NIFTY 50")
+                }}
+              >
+                <p>NIFTY 50</p>
+              </div>
+              <div
+                onClick={() => {
+                  localStorage.setItem("Exchange", "NSE");
+                  localStorage.setItem("Symbol", "NIFTY BANK");
+                  localStorage.setItem("token", "26009");
+                  setExchange("NSE")
+                  setSymbol("NIFTY BANK")
+                }}
+              >
+                <p>NIFTY BANK</p>
+              </div>
+              <div
+                onClick={() => {
+                  localStorage.setItem("Exchange", "NSE");
+                  localStorage.setItem("Symbol", "NIFTY FIN SERVICE");
+                  localStorage.setItem("token", "26037");
+                  setExchange("NSE")
+                  setSymbol("NIFTY FIN SERVICE")
+                }}
+              >
+                <p>NIFTY FIN SERVICE</p>
+              </div>
+              <div
                   onClick={() => {
-                    localStorage.setItem("Exchange", "NSE");
-                    localStorage.setItem("Symbol", "INDIA VIX");
-                    localStorage.setItem("token", "26017");
-                    setExchange("NSE");
-                    setSymbol("INDIA VIX");
-                  }}
-                  className="Item"
-                  key={index}
-                >
-                  <div>
-                    <p className="title"> {item.name} </p>
-                    <p className="price"> {item.lp} </p>
-                    <p
-                      className={`percent  ${item.pc < 0 ? "minus" : "plus"} `}
-                    >
-                      {" "}
-                      ({item.pc}%){" "}
-                    </p>
-                  </div>
-                  <i
-                    className={`${
-                      item.pc < 0
-                        ? "fa-solid fa-arrow-trend-down"
-                        : "fa-solid fa-arrow-trend-up"
-                    }`}
-                  ></i>
-                </div>
-              ))}
+                  localStorage.setItem("Exchange", "BSE");
+                  localStorage.setItem("Symbol", "SENSEX");
+                  localStorage.setItem("token", "1");
+                  setExchange("BSE")
+                  setSymbol("SENSEX")
+                }}
+              >
+                <p>SENSEX</p>
+              </div>
+              <div
+                onClick={() => {
+                  localStorage.setItem("Exchange", "NSE");
+                  localStorage.setItem("Symbol", "INDIA VIX");
+                  localStorage.setItem("token", "26017");
+                  setExchange("NSE")
+                  setSymbol("INDIA VIX")
+                }}
+              >
+                <p>INDIA VIX</p>
+              </div>
             </div>
           </div>
         )}
