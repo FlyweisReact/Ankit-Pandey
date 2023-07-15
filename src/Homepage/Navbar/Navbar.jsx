@@ -14,9 +14,9 @@ const Navbar = ({ setHamb, hamb }) => {
   const [modalShow, setModalShow] = useState(false);
   const SessionId = localStorage.getItem("sessionId");
   const [userProfile, setUserProfile] = useState(false);
-  const { darkTheme  , Exchange , setExchange ,symbol, setSymbol } = useContext(MyContext);
+  const { darkTheme, Exchange, setExchange, symbol, setSymbol } =
+    useContext(MyContext);
   const UserId = localStorage.getItem("userId");
-
 
   const Appendix = [
     {
@@ -37,9 +37,8 @@ const Navbar = ({ setHamb, hamb }) => {
   );
 
   const FilterGraph = DataFilter.filter((i) =>
-  i.Symbol?.toLowerCase().includes(symbol?.toLowerCase())
-);
-
+    i.Symbol?.toLowerCase().includes(symbol?.toLowerCase())
+  );
 
   return (
     <>
@@ -154,7 +153,9 @@ const Navbar = ({ setHamb, hamb }) => {
                           );
                           setSymbol(i.Symbol);
                         }}
-                      > {i.Symbol}
+                      >
+                        {" "}
+                        {i.Symbol}
                       </Dropdown.Item>
                     ))
                   : FilterGraph?.map((i) => (
@@ -168,7 +169,9 @@ const Navbar = ({ setHamb, hamb }) => {
                           );
                           setSymbol(i.Symbol);
                         }}
-                      > {i.Symbol}{" "}
+                      >
+                        {" "}
+                        {i.Symbol}{" "}
                       </Dropdown.Item>
                     ))}
               </Dropdown.Menu>
