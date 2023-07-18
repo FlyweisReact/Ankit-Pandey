@@ -153,6 +153,7 @@
 .Content_Box .div_Box div .price {
   font-weight: 900;
 }
+
 .Content_Box .div_Box div .percent {
   font-weight: 500;
 }
@@ -165,4 +166,43 @@
 .Content_Box .div_Box .Item:hover {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   transform: scale(1.1);
+}
+
+.chertType {
+  border: 1px solid #eee;
+  max-width: 500px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  align-items: center;
+  border-radius: 10px;
+}
+.chertType p {
+  margin: 0;
+  cursor: pointer;
+  color: #000 !important;
+}
+.darkChartType {
+  border: 1px solid #eee;
+  max-width: 500px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  align-items: center;
+  border-radius: 10px;
+}
+.darkChartType p {
+  margin: 0;
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.ChartContainer {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.ChartContainer div{
+  width: 40%;
 }
