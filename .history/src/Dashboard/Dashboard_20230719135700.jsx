@@ -461,7 +461,7 @@ const Dashboard = () => {
               );
               if (dataPoint) {
                 const price = dataPoint.value;
-                tooltipRef.current.innerHTML = `<div style="color: ${"rgba(0, 150, 136, 1)"}">${symbol}.</div><div style="font-size: 24px; margin: 4px 0px; color: ${"black"}">
+                tooltipRef.current.innerHTML = `<div style="color: ${"rgba(0, 150, 136, 1)"}">.</div><div style="font-size: 24px; margin: 4px 0px; color: ${"black"}">
                   ${Math.round(100 * price) / 100}
                   </div><div style="color: ${"black"}">
                   ${dateStr}
@@ -497,7 +497,7 @@ const Dashboard = () => {
               );
               if (dataPoint) {
                 const price = dataPoint.value;
-                tooltipRef.current.innerHTML = `<div style="color: ${"rgba(0, 150, 136, 1)"}">${symbol}.</div><div style="font-size: 24px; margin: 4px 0px; color: ${"black"}">
+                tooltipRef.current.innerHTML = `<div style="color: ${"rgba(0, 150, 136, 1)"}">Apple Inc.</div><div style="font-size: 24px; margin: 4px 0px; color: ${"black"}">
                 ${Math.round(100 * price) / 100}
                 </div><div style="color: ${"black"}">
                 ${dateStr}
@@ -541,7 +541,7 @@ const Dashboard = () => {
               );
               if (dataPoint) {
                 const price = dataPoint.value;
-                tooltipRef.current.innerHTML = `<div style="color: rgba(0, 120, 255, 1)">⬤${symbol}.</div><div style="font-size: 24px; margin: 4px 0px; color: black">
+                tooltipRef.current.innerHTML = `<div style="color: rgba(0, 120, 255, 1)">⬤ ABC Inc.</div><div style="font-size: 24px; margin: 4px 0px; color: black">
                 ${Math.round(100 * price) / 100}
                 </div><div style="color: black">
                 ${dateStr}

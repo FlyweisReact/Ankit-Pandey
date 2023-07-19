@@ -329,7 +329,7 @@ code {
 
 
 .floating-tooltip-2 {
-	width: 120px;
+	/* width: 120px;
 	height: 90px;
 	position: absolute;
 	display: none;
@@ -345,19 +345,18 @@ code {
 	pointer-events: none;
 	border: 1px solid rgba(0, 150, 136, 1);
 	border-radius: 2px;
-  text-align: center;
-}
-.floating-tooltip-3 {
-  width: 120px;
+  text-align: center; */
+
+  width: 96px;
 	height: 300px;
 	position: absolute;
 	display: none;
-  text-align: center;
 	padding: 8px;
 	box-sizing: border-box;
 	font-size: 12px;
 	color: '#20262E';
 	background-color: rgba(255, 255, 255, 0.23);
+	text-align: left;
 	z-index: 1000;
 	top: 12px;
 	left: 12px;
@@ -365,4 +364,5 @@ code {
 	border-radius: 4px 4px 0px 0px;
   border-bottom: none;
   box-shadow: 0 2px 5px 0 rgba(117, 134, 150, 0.45);
+  translate: (-50% , -50%);
 }

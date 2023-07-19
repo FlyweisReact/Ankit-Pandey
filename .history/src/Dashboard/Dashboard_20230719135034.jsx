@@ -461,7 +461,7 @@ const Dashboard = () => {
               );
               if (dataPoint) {
                 const price = dataPoint.value;
-                tooltipRef.current.innerHTML = `<div style="color: ${"rgba(0, 150, 136, 1)"}">${symbol}.</div><div style="font-size: 24px; margin: 4px 0px; color: ${"black"}">
+                tooltipRef.current.innerHTML = `<div style="color: ${"rgba(0, 150, 136, 1)"}">Apple Inc.</div><div style="font-size: 24px; margin: 4px 0px; color: ${"black"}">
                   ${Math.round(100 * price) / 100}
                   </div><div style="color: ${"black"}">
                   ${dateStr}
@@ -497,7 +497,7 @@ const Dashboard = () => {
               );
               if (dataPoint) {
                 const price = dataPoint.value;
-                tooltipRef.current.innerHTML = `<div style="color: ${"rgba(0, 150, 136, 1)"}">${symbol}.</div><div style="font-size: 24px; margin: 4px 0px; color: ${"black"}">
+                tooltipRef.current.innerHTML = `<div style="color: ${"rgba(0, 150, 136, 1)"}">Apple Inc.</div><div style="font-size: 24px; margin: 4px 0px; color: ${"black"}">
                 ${Math.round(100 * price) / 100}
                 </div><div style="color: ${"black"}">
                 ${dateStr}
@@ -541,7 +541,7 @@ const Dashboard = () => {
               );
               if (dataPoint) {
                 const price = dataPoint.value;
-                tooltipRef.current.innerHTML = `<div style="color: rgba(0, 120, 255, 1)">⬤${symbol}.</div><div style="font-size: 24px; margin: 4px 0px; color: black">
+                tooltipRef.current.innerHTML = `<div style="color: rgba(0, 120, 255, 1)">⬤ ABC Inc.</div><div style="font-size: 24px; margin: 4px 0px; color: black">
                 ${Math.round(100 * price) / 100}
                 </div><div style="color: black">
                 ${dateStr}
@@ -558,6 +558,10 @@ const Dashboard = () => {
                 if (top > container.clientHeight - toolTipHeight) {
                   top = y - toolTipHeight - toolTipMargin;
                 }
+
+                const coordinate = areaSeries.priceToCoordinate(price);
+                const shiftedCoordinate =
+                  param.point.x - tooltipRef.current.clientWidth / 2;
                 tooltipRef.current.style.left = `${left}px`;
                 tooltipRef.current.style.top = `${top}px`;
               }
@@ -720,24 +724,10 @@ const Dashboard = () => {
                   <p onClick={() => setCurrentTheme("Light")}>Light</p>
                   <p onClick={() => setCurrentTheme("Color")}>Color</p>
                 </div>
-                <div className={darkTheme ? " darkChartType" : "chertType "}>
-                  <p onClick={() => setTipType("floating")}>Floating tooltip</p>
-                  <p onClick={() => setTipType("Tracking")}>Tracking tooltip</p>
-                  <p onClick={() => setTipType("Magnifier")}>
-                    Magnifier tooltip
-                  </p>
-                </div>
               </div>
 
               <div ref={chartContainerRef} id="container" />
-              <div
-                ref={tooltipRef}
-                className={
-                  tipType === "Magnifier"
-                    ? "floating-tooltip-3"
-                    : "floating-tooltip-2"
-                }
-              />
+              <div ref={tooltipRef} className="floating-tooltip-2" />
             </div>
           </>
         ) : (

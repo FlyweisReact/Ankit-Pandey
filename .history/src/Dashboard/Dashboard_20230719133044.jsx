@@ -213,8 +213,6 @@ const Dashboard = () => {
   const [currentTheme, setCurrentTheme] = useState("Dark");
   const tooltipRef = useRef(null);
 
-  const [tipType, setTipType] = useState("floating");
-
   useEffect(() => {
     if (historicalData?.result) {
     } else {
@@ -250,6 +248,7 @@ const Dashboard = () => {
           },
         },
       };
+
 
       const darkTheme = {
         chart: {
@@ -415,9 +414,9 @@ const Dashboard = () => {
         chartInstance.timeScale().fitContent();
       } else if (chartType === "area") {
         const areaSeries = chartInstance.addAreaSeries({
-          topColor: "rgba(0, 150, 136, 0.56)",
-          bottomColor: "rgba(0, 150, 136, 0.04)",
-          lineColor: "rgba(0, 150, 136, 1)",
+          topColor: 'rgba(0, 150, 136, 0.56)',
+          bottomColor: 'rgba(0, 150, 136, 0.04)',
+          lineColor: 'rgba(0, 150, 136, 1)',
           lineWidth: 2,
         });
 
@@ -441,131 +440,90 @@ const Dashboard = () => {
         areaSeries.setData(mappedData?.length > 0 ? mappedData : []);
 
         // Tooltip
+
+        // const container = chartContainerRef.current;
+        // chartInstance.subscribeCrosshairMove((param) => {
+        //   if (
+        //     param.point === undefined ||
+        //     !param.time ||
+        //     param.point.x < 0 ||
+        //     param.point.x > container.clientWidth ||
+        //     param.point.y < 0 ||
+        //     param.point.y > container.clientHeight
+        //   ) {
+        //     tooltipRef.current.style.display = "none";
+        //   } else {
+        //     const dateStr = param.time;
+        //     tooltipRef.current.style.display = "block";
+        //     const dataPoint = mappedData.find(
+        //       (data) => data.time === param.time
+        //     );
+        //     if (dataPoint) {
+        //       const price = dataPoint.value;
+        //       tooltipRef.current.innerHTML = `<div style="color: ${"rgba(0, 150, 136, 1)"}">Apple Inc.</div><div style="font-size: 24px; margin: 4px 0px; color: ${"black"}">
+        //       ${Math.round(100 * price) / 100}
+        //       </div><div style="color: ${"black"}">
+        //       ${dateStr}
+        //       </div>`;
+
+        //       const coordinate = areaSeries.priceToCoordinate(price);
+        //       const shiftedCoordinate =
+        //         param.point.x - tooltipRef.current.clientWidth / 2;
+        //       tooltipRef.current.style.left = `${shiftedCoordinate}px`;
+        //       tooltipRef.current.style.top = `${coordinate}px`;
+        //     }
+        //   }
+        // });
+
+
         const container = chartContainerRef.current;
-        if (tipType === "floating") {
-          chartInstance.subscribeCrosshairMove((param) => {
-            if (
-              param.point === undefined ||
-              !param.time ||
-              param.point.x < 0 ||
-              param.point.x > container.clientWidth ||
-              param.point.y < 0 ||
-              param.point.y > container.clientHeight
-            ) {
-              tooltipRef.current.style.display = "none";
-            } else {
-              const dateStr = param.time;
-              tooltipRef.current.style.display = "block";
-              const dataPoint = mappedData.find(
-                (data) => data.time === param.time
-              );
-              if (dataPoint) {
-                const price = dataPoint.value;
-                tooltipRef.current.innerHTML = `<div style="color: ${"rgba(0, 150, 136, 1)"}">${symbol}.</div><div style="font-size: 24px; margin: 4px 0px; color: ${"black"}">
-                  ${Math.round(100 * price) / 100}
-                  </div><div style="color: ${"black"}">
-                  ${dateStr}
-                  </div>`;
+chartInstance.subscribeCrosshairMove((param) => {
+  if (
+    param.point === undefined ||
+    !param.time ||
+    param.point.x < 0 ||
+    param.point.x > container.clientWidth ||
+    param.point.y < 0 ||
+    param.point.y > container.clientHeight
+  ) {
+    tooltipRef.current.style.display = "none";
+  } else {
+    const dateStr = param.time;
+    tooltipRef.current.style.display = "block";
 
-                const coordinate = areaSeries.priceToCoordinate(price);
-                const shiftedCoordinate =
-                  param.point.x - tooltipRef.current.clientWidth / 2;
-                tooltipRef.current.style.left = `${shiftedCoordinate}px`;
-                tooltipRef.current.style.top = `${coordinate}px`;
-              }
-            }
-          });
-        } else if (tipType === "Tracking") {
-          const toolTipWidth = 80;
-          const toolTipHeight = 80;
-          const toolTipMargin = 15;
-          chartInstance.subscribeCrosshairMove((param) => {
-            if (
-              param.point === undefined ||
-              !param.time ||
-              param.point.x < 0 ||
-              param.point.x > container.clientWidth ||
-              param.point.y < 0 ||
-              param.point.y > container.clientHeight
-            ) {
-              tooltipRef.current.style.display = "none";
-            } else {
-              const dateStr = param.time;
-              tooltipRef.current.style.display = "block";
-              const dataPoint = mappedData.find(
-                (data) => data.time === param.time
-              );
-              if (dataPoint) {
-                const price = dataPoint.value;
-                tooltipRef.current.innerHTML = `<div style="color: ${"rgba(0, 150, 136, 1)"}">${symbol}.</div><div style="font-size: 24px; margin: 4px 0px; color: ${"black"}">
-                ${Math.round(100 * price) / 100}
-                </div><div style="color: ${"black"}">
-                ${dateStr}
-                </div>`;
+    let tooltipContent = `<div style="color: rgba(0, 150, 136, 1)">Apple Inc.</div>`;
 
-                const y = param.point.y;
-                let left = param.point.x + toolTipMargin;
-
-                if (left > container.clientWidth - toolTipWidth) {
-                  left = param.point.x - toolTipMargin - toolTipWidth;
-                }
-
-                let top = y + toolTipMargin;
-                if (top > container.clientHeight - toolTipHeight) {
-                  top = y - toolTipHeight - toolTipMargin;
-                }
-                tooltipRef.current.style.left = `${left}px`;
-                tooltipRef.current.style.top = `${top}px`;
-              }
-            }
-          });
-        } else if (tipType === "Magnifier") {
-          const toolTipWidth = 200;
-          const toolTipHeight = 80;
-          const toolTipMargin = 15;
-          chartInstance.subscribeCrosshairMove((param) => {
-            if (
-              param.point === undefined ||
-              !param.time ||
-              param.point.x < 0 ||
-              param.point.x > container.clientWidth ||
-              param.point.y < 0 ||
-              param.point.y > container.clientHeight
-            ) {
-              tooltipRef.current.style.display = "none";
-            } else {
-              const dateStr = param.time;
-              tooltipRef.current.style.display = "block";
-              const dataPoint = mappedData.find(
-                (data) => data.time === param.time
-              );
-              if (dataPoint) {
-                const price = dataPoint.value;
-                tooltipRef.current.innerHTML = `<div style="color: rgba(0, 120, 255, 1)">⬤${symbol}.</div><div style="font-size: 24px; margin: 4px 0px; color: black">
-                ${Math.round(100 * price) / 100}
-                </div><div style="color: black">
-                ${dateStr}
-                </div>`;
-
-                const y = param.point.y;
-                let left = param.point.x + toolTipMargin;
-
-                if (left > container.clientWidth - toolTipWidth) {
-                  left = param.point.x - toolTipMargin - toolTipWidth;
-                }
-
-                let top = y + toolTipMargin;
-                if (top > container.clientHeight - toolTipHeight) {
-                  top = y - toolTipHeight - toolTipMargin;
-                }
-                tooltipRef.current.style.left = `${left}px`;
-                tooltipRef.current.style.top = `${top}px`;
-              }
-            }
-          });
+    // Loop through each series to get prices for the hovered time
+    chartInstance
+      .getVisibleSeries()
+      .forEach((series) => {
+        if (!series.data || series.data.length === 0) return; // Skip if no data
+        const dataPoint = series.data.find(
+          (data) => data.time === param.time
+        );
+        if (dataPoint) {
+          const price = dataPoint.value;
+          tooltipContent += `
+            <div style="font-size: 24px; margin: 4px 0px; color: black">
+              ${series.options.title.text}: ${Math.round(100 * price) / 100}
+            </div>
+          `;
         }
+      });
 
-        // tooltip
+    tooltipContent += `<div style="color: black">${dateStr}</div>`;
+    tooltipRef.current.innerHTML = tooltipContent;
+
+    const coordinate = param.point.y; // Use the y-coordinate of the hovered point
+    const shiftedCoordinate =
+      param.point.x - tooltipRef.current.clientWidth / 2;
+    tooltipRef.current.style.left = `${shiftedCoordinate}px`;
+    tooltipRef.current.style.top = `${coordinate}px`;
+  }
+});
+
+
+        // Tooltip
 
         var minimumPrice = mappedData[0].value;
         var maximumPrice = minimumPrice;
@@ -720,24 +678,10 @@ const Dashboard = () => {
                   <p onClick={() => setCurrentTheme("Light")}>Light</p>
                   <p onClick={() => setCurrentTheme("Color")}>Color</p>
                 </div>
-                <div className={darkTheme ? " darkChartType" : "chertType "}>
-                  <p onClick={() => setTipType("floating")}>Floating tooltip</p>
-                  <p onClick={() => setTipType("Tracking")}>Tracking tooltip</p>
-                  <p onClick={() => setTipType("Magnifier")}>
-                    Magnifier tooltip
-                  </p>
-                </div>
               </div>
 
               <div ref={chartContainerRef} id="container" />
-              <div
-                ref={tooltipRef}
-                className={
-                  tipType === "Magnifier"
-                    ? "floating-tooltip-3"
-                    : "floating-tooltip-2"
-                }
-              />
+              <div ref={tooltipRef} className="floating-tooltip-2" />
             </div>
           </>
         ) : (

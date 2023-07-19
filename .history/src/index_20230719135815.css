@@ -358,6 +358,7 @@ code {
 	font-size: 12px;
 	color: '#20262E';
 	background-color: rgba(255, 255, 255, 0.23);
+	text-align: left;
 	z-index: 1000;
 	top: 12px;
 	left: 12px;

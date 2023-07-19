@@ -51,7 +51,7 @@ const Dashboard = () => {
   const currentDate = new Date();
   const calculatePrevDate = () => {
     const prevDate = new Date();
-    prevDate.setDate(prevDate.getDate() - 10);
+    prevDate.setDate(prevDate.getDate() - 365);
     return prevDate;
   };
 
@@ -211,9 +211,6 @@ const Dashboard = () => {
   let chartInstance;
   const [chartType, setChartType] = useState("candles");
   const [currentTheme, setCurrentTheme] = useState("Dark");
-  const tooltipRef = useRef(null);
-
-  const [tipType, setTipType] = useState("floating");
 
   useEffect(() => {
     if (historicalData?.result) {
@@ -222,31 +219,47 @@ const Dashboard = () => {
     }
     if (chartContainerRef.current) {
       const chartOptions = {
-        rightPriceScale: {
-          scaleMargins: {
-            top: 0.2,
-            bottom: 0.2,
-          },
-          borderVisible: false,
-        },
-        timeScale: {
-          borderVisible: false,
-        },
         layout: {
-          backgroundColor: "#ffffff",
-          textColor: "#333",
-        },
-        grid: {
-          horzLines: {
-            color: "#eee",
+          textColor: "black",
+          background: {
+            type: "solid",
+            color: "white",
           },
-          vertLines: {
-            color: "#ffffff",
+          grid: {
+            vertLines: { color: "#444" },
+            horzLines: { color: "#444" },
           },
-        },
-        crosshair: {
-          vertLine: {
-            labelVisible: false,
+          rightPriceScale: {
+            scaleMargins: {
+              top: 0.3,
+              bottom: 0.25,
+            },
+            borderVisible: false,
+          },
+          crosshair: {
+            vertLine: {
+              width: 4,
+              color: "rgba(224, 227, 235, 0.1)",
+              style: 0,
+            },
+            horzLine: {
+              visible: false,
+              labelVisible: false,
+            },
+          },
+          grid: {
+            vertLines: {
+              color: "rgba(42, 46, 57, 0)",
+            },
+            horzLines: {
+              color: "rgba(42, 46, 57, 0)",
+            },
+          },
+          handleScroll: {
+            vertTouchDrag: false,
+          },
+          timeScale: {
+            borderVisible: false,
           },
         },
       };
@@ -363,25 +376,15 @@ const Dashboard = () => {
           wickDownColor: "#ef5350",
         });
 
-        const uniqueTimestamps = new Set();
-        const mappedData = historicalData?.result
-          ?.map((i) => {
-            const timestamp = new Date(i.time).getTime();
-            if (!uniqueTimestamps.has(timestamp)) {
-              uniqueTimestamps.add(timestamp);
-              return {
-                time: timestamp,
-                open: i.open,
-                high: i.high,
-                low: i.low,
-                close: i.close,
-              };
-            }
-            return null;
-          })
-          .filter((entry) => entry !== null);
-
-        mappedData?.sort((a, b) => a.time - b.time);
+        const mappedData = historicalData?.result?.map((i) => {
+          return {
+            open: i.open,
+            high: i.high,
+            low: i.low,
+            close: i.close,
+            time: i.time,
+          };
+        });
 
         candlestickSeries.setData(mappedData?.length > 0 ? mappedData : []);
         chartInstance.timeScale().fitContent();
@@ -391,181 +394,63 @@ const Dashboard = () => {
           downColor: "#ef5350",
         });
 
-        const uniqueTimestamps = new Set();
-        const mappedData = historicalData?.result
-          ?.map((i) => {
-            const timestamp = new Date(i.time).getTime();
-            if (!uniqueTimestamps.has(timestamp)) {
-              uniqueTimestamps.add(timestamp);
-              return {
-                time: timestamp,
-                open: i.open,
-                high: i.high,
-                low: i.low,
-                close: i.close,
-              };
-            }
-            return null;
-          })
-          .filter((entry) => entry !== null);
+        const mappedData = historicalData?.result?.map((i) => {
+          return {
+            open: i.open,
+            high: i.high,
+            low: i.low,
+            close: i.close,
+            time: i.time,
+          };
+        });
 
-        mappedData?.sort((a, b) => a.time - b.time);
         barSeries.setData(mappedData?.length > 0 ? mappedData : []);
 
         chartInstance.timeScale().fitContent();
       } else if (chartType === "area") {
         const areaSeries = chartInstance.addAreaSeries({
-          topColor: "rgba(0, 150, 136, 0.56)",
-          bottomColor: "rgba(0, 150, 136, 0.04)",
-          lineColor: "rgba(0, 150, 136, 1)",
+          lineColor: "#2962FF",
+          topColor: "#2962FF",
+          bottomColor: "rgba(41, 98, 255, 0.28)",
           lineWidth: 2,
+          crosshairMarkerVisible: false,
+          lastValueVisible: false,
+          priceLineVisible: false,
         });
 
-        const uniqueTimestamps = new Set();
-        const mappedData = historicalData?.result
-          ?.map((i) => {
-            const timestamp = new Date(i.time).getTime();
-            if (!uniqueTimestamps.has(timestamp)) {
-              uniqueTimestamps.add(timestamp);
-              return {
-                time: timestamp,
-                value: i.high,
-              };
-            }
-            return null;
-          })
-          .filter((entry) => entry !== null);
+        const mappedData = historicalData?.result?.map((i) => {
+          return {
+            value: i.high,
+            time: i.time,
+          };
+        });
 
-        mappedData?.sort((a, b) => a.time - b.time);
-
-        areaSeries.setData(mappedData?.length > 0 ? mappedData : []);
 
         // Tooltip
-        const container = chartContainerRef.current;
-        if (tipType === "floating") {
-          chartInstance.subscribeCrosshairMove((param) => {
-            if (
-              param.point === undefined ||
-              !param.time ||
-              param.point.x < 0 ||
-              param.point.x > container.clientWidth ||
-              param.point.y < 0 ||
-              param.point.y > container.clientHeight
-            ) {
-              tooltipRef.current.style.display = "none";
-            } else {
-              const dateStr = param.time;
-              tooltipRef.current.style.display = "block";
-              const dataPoint = mappedData.find(
-                (data) => data.time === param.time
-              );
-              if (dataPoint) {
-                const price = dataPoint.value;
-                tooltipRef.current.innerHTML = `<div style="color: ${"rgba(0, 150, 136, 1)"}">${symbol}.</div><div style="font-size: 24px; margin: 4px 0px; color: ${"black"}">
-                  ${Math.round(100 * price) / 100}
-                  </div><div style="color: ${"black"}">
-                  ${dateStr}
-                  </div>`;
+        chart.subscribeCrosshairMove((param) => {
+          const tooltip = tooltipRef.current;
+          if (
+            param.point === undefined ||
+            !param.time ||
+            param.point.x < 0 ||
+            param.point.x > container.clientWidth ||
+            param.point.y < 0 ||
+            param.point.y > container.clientHeight
+          ) {
+            tooltip.style.display = 'none';
+          } else {
+            const dateStr = param.time;
+            tooltip.style.display = 'block';
+            const seriesData = param.seriesData.get(series);
+            const price = seriesData.value !== undefined ? seriesData.value : seriesData.close;
+            tooltip.innerHTML = `<div style="color: rgba(0, 150, 136, 1)">Apple Inc.</div>
+                                 <div style="font-size: 24px; margin: 4px 0px; color: black">${Math.round(
+                                   100 * price
+                                 ) / 100}</div>
+                                 <div style="color: black">${dateStr}</div>`;
+    
 
-                const coordinate = areaSeries.priceToCoordinate(price);
-                const shiftedCoordinate =
-                  param.point.x - tooltipRef.current.clientWidth / 2;
-                tooltipRef.current.style.left = `${shiftedCoordinate}px`;
-                tooltipRef.current.style.top = `${coordinate}px`;
-              }
-            }
-          });
-        } else if (tipType === "Tracking") {
-          const toolTipWidth = 80;
-          const toolTipHeight = 80;
-          const toolTipMargin = 15;
-          chartInstance.subscribeCrosshairMove((param) => {
-            if (
-              param.point === undefined ||
-              !param.time ||
-              param.point.x < 0 ||
-              param.point.x > container.clientWidth ||
-              param.point.y < 0 ||
-              param.point.y > container.clientHeight
-            ) {
-              tooltipRef.current.style.display = "none";
-            } else {
-              const dateStr = param.time;
-              tooltipRef.current.style.display = "block";
-              const dataPoint = mappedData.find(
-                (data) => data.time === param.time
-              );
-              if (dataPoint) {
-                const price = dataPoint.value;
-                tooltipRef.current.innerHTML = `<div style="color: ${"rgba(0, 150, 136, 1)"}">${symbol}.</div><div style="font-size: 24px; margin: 4px 0px; color: ${"black"}">
-                ${Math.round(100 * price) / 100}
-                </div><div style="color: ${"black"}">
-                ${dateStr}
-                </div>`;
-
-                const y = param.point.y;
-                let left = param.point.x + toolTipMargin;
-
-                if (left > container.clientWidth - toolTipWidth) {
-                  left = param.point.x - toolTipMargin - toolTipWidth;
-                }
-
-                let top = y + toolTipMargin;
-                if (top > container.clientHeight - toolTipHeight) {
-                  top = y - toolTipHeight - toolTipMargin;
-                }
-                tooltipRef.current.style.left = `${left}px`;
-                tooltipRef.current.style.top = `${top}px`;
-              }
-            }
-          });
-        } else if (tipType === "Magnifier") {
-          const toolTipWidth = 200;
-          const toolTipHeight = 80;
-          const toolTipMargin = 15;
-          chartInstance.subscribeCrosshairMove((param) => {
-            if (
-              param.point === undefined ||
-              !param.time ||
-              param.point.x < 0 ||
-              param.point.x > container.clientWidth ||
-              param.point.y < 0 ||
-              param.point.y > container.clientHeight
-            ) {
-              tooltipRef.current.style.display = "none";
-            } else {
-              const dateStr = param.time;
-              tooltipRef.current.style.display = "block";
-              const dataPoint = mappedData.find(
-                (data) => data.time === param.time
-              );
-              if (dataPoint) {
-                const price = dataPoint.value;
-                tooltipRef.current.innerHTML = `<div style="color: rgba(0, 120, 255, 1)">⬤${symbol}.</div><div style="font-size: 24px; margin: 4px 0px; color: black">
-                ${Math.round(100 * price) / 100}
-                </div><div style="color: black">
-                ${dateStr}
-                </div>`;
-
-                const y = param.point.y;
-                let left = param.point.x + toolTipMargin;
-
-                if (left > container.clientWidth - toolTipWidth) {
-                  left = param.point.x - toolTipMargin - toolTipWidth;
-                }
-
-                let top = y + toolTipMargin;
-                if (top > container.clientHeight - toolTipHeight) {
-                  top = y - toolTipHeight - toolTipMargin;
-                }
-                tooltipRef.current.style.left = `${left}px`;
-                tooltipRef.current.style.top = `${top}px`;
-              }
-            }
-          });
-        }
-
-        // tooltip
+        areaSeries.setData(mappedData?.length > 0 ? mappedData : []);
 
         var minimumPrice = mappedData[0].value;
         var maximumPrice = minimumPrice;
@@ -620,22 +505,12 @@ const Dashboard = () => {
           priceLineVisible: false,
         });
 
-        const uniqueTimestamps = new Set();
-        const mappedData = historicalData?.result
-          ?.map((i) => {
-            const timestamp = new Date(i.time).getTime();
-            if (!uniqueTimestamps.has(timestamp)) {
-              uniqueTimestamps.add(timestamp);
-              return {
-                time: timestamp,
-                value: i.high,
-              };
-            }
-            return null;
-          })
-          .filter((entry) => entry !== null);
-
-        mappedData?.sort((a, b) => a.time - b.time);
+        const mappedData = historicalData?.result?.map((i) => {
+          return {
+            value: i.open,
+            time: i.time,
+          };
+        });
 
         lineSeries.setData(mappedData?.length > 0 ? mappedData : []);
 
@@ -720,24 +595,9 @@ const Dashboard = () => {
                   <p onClick={() => setCurrentTheme("Light")}>Light</p>
                   <p onClick={() => setCurrentTheme("Color")}>Color</p>
                 </div>
-                <div className={darkTheme ? " darkChartType" : "chertType "}>
-                  <p onClick={() => setTipType("floating")}>Floating tooltip</p>
-                  <p onClick={() => setTipType("Tracking")}>Tracking tooltip</p>
-                  <p onClick={() => setTipType("Magnifier")}>
-                    Magnifier tooltip
-                  </p>
-                </div>
               </div>
 
               <div ref={chartContainerRef} id="container" />
-              <div
-                ref={tooltipRef}
-                className={
-                  tipType === "Magnifier"
-                    ? "floating-tooltip-3"
-                    : "floating-tooltip-2"
-                }
-              />
             </div>
           </>
         ) : (
