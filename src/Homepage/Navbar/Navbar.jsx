@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Navbar.css";
 import { AiOutlineSearch } from "react-icons/ai";
 import { Dropdown } from "react-bootstrap";
@@ -8,7 +8,7 @@ import { MyContext } from "../MyContext";
 import { MobileBar } from "../../Modal/MobileBar";
 import { LoginModal, UserProfileModal } from "../../Modal/GetOrder";
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
-import { Array } from "../../Array";
+import axios from "axios";
 
 const Navbar = ({ setHamb, hamb }) => {
   const [modalShow, setModalShow] = useState(false);
@@ -17,14 +17,50 @@ const Navbar = ({ setHamb, hamb }) => {
   const { darkTheme, Exchange, setExchange, symbol, setSymbol } =
     useContext(MyContext);
   const UserId = localStorage.getItem("userId");
+  const [data, setData] = useState([]);
+
+  const fetchHandler = async (name) => {
+    try {
+      const { data } = await axios.get(
+        `https://ankit-pandey-backend.vercel.app/api/v1/profile/getAllExchangeToken/${name}`
+      );
+      setData(data.result);
+    } catch {}
+  };
+
+  useEffect(() => {
+    fetchHandler(Exchange);
+  }, [Exchange]);
+
+  useEffect(() => {
+    setSymbol("");
+    setExchange("");
+  }, []);
 
   const Appendix = [
     {
+      name: "NFO",
+    },
+    {
       name: "NSE",
     },
-
+    {
+      name: "CDS",
+    },
     {
       name: "BSE",
+    },
+    {
+      name: "BFO",
+    },
+    {
+      name: "BCD",
+    },
+    {
+      name: "MCX",
+    },
+    {
+      name: "INDICES",
     },
   ];
 
@@ -32,11 +68,7 @@ const Navbar = ({ setHamb, hamb }) => {
     i.name?.toLowerCase().includes(Exchange?.toLowerCase())
   );
 
-  const DataFilter = Array.filter((i) =>
-    i.Exch?.toLowerCase().includes(Exchange?.toLowerCase())
-  );
-
-  const FilterGraph = DataFilter.filter((i) =>
+  const FilterGraph = data?.filter((i) =>
     i.Symbol?.toLowerCase().includes(symbol?.toLowerCase())
   );
 
@@ -141,39 +173,20 @@ const Navbar = ({ setHamb, hamb }) => {
               <Dropdown.Menu
                 style={{ maxHeight: "500px", overflowY: "scroll" }}
               >
-                {FilterGraph?.length === 0
-                  ? DataFilter?.map((i) => (
-                      <Dropdown.Item
-                        onClick={() => {
-                          localStorage.setItem("Symbol", i.Symbol);
-                          localStorage.setItem("token", i.Token);
-                          localStorage.setItem(
-                            "Trading_Symbol",
-                            i.TradingSymbol
-                          );
-                          setSymbol(i.Symbol);
-                        }}
-                      >
-                        {" "}
-                        {i.Symbol}
-                      </Dropdown.Item>
-                    ))
-                  : FilterGraph?.map((i) => (
-                      <Dropdown.Item
-                        onClick={() => {
-                          localStorage.setItem("Symbol", i.Symbol);
-                          localStorage.setItem("token", i.Token);
-                          localStorage.setItem(
-                            "Trading_Symbol",
-                            i.TradingSymbol
-                          );
-                          setSymbol(i.Symbol);
-                        }}
-                      >
-                        {" "}
-                        {i.Symbol}{" "}
-                      </Dropdown.Item>
-                    ))}
+                {FilterGraph?.map((i, index) => (
+                  <Dropdown.Item
+                    key={index}
+                    onClick={() => {
+                      localStorage.setItem("Symbol", i.Symbol);
+                      localStorage.setItem("token", i.token);
+                      localStorage.setItem("Trading_Symbol", i.tradingSymbol);
+                      setSymbol(i.Symbol);
+                    }}
+                  >
+                    {" "}
+                    {i.Symbol}{" "}
+                  </Dropdown.Item>
+                ))}
               </Dropdown.Menu>
             </Dropdown>
 

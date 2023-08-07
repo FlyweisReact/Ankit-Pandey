@@ -36,7 +36,6 @@ const Dashboard = () => {
     setSymbol,
     setHistoricalData,
   } = useContext(MyContext);
-  const onLoadScriptRef = useRef();
   const [modalShow, setModalShow] = useState(false);
   const cardRef = useRef(null);
   const [Total, setTotal] = useState(symbol);
