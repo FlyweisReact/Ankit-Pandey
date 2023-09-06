@@ -364,8 +364,6 @@ const Dashboard = () => {
 
         const uniqueTimestamps = new Set();
         console.log(historicalData , "HistoricalData")
-
-        
         const mappedData = historicalData?.result
           ?.map((i) => {
             const timestamp = new Date(i.time).getTime();
